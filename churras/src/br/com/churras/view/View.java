@@ -1,5 +1,9 @@
 package br.com.churras.view;
 
+import java.math.BigDecimal;
+
+import br.com.churras.service.Calculador;
+
 public class View {
 
 	public static void main(String[] args) {
