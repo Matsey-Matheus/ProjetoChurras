@@ -1,18 +1,38 @@
-Churras
+CurrasApp
 
-Passo a passo
+- 450g de carne por pessoa
+- 1.5l de refrigerante
+- 5 latas de 330ml
 
-Registrar amigos - array ou switch case
-Tipos de carne - quantos quilos de carne eu devo comprar
-Tipos de bebidas - quantos litros de bebidas eu devo comprar
-Valor aproximado por pessoa
+Valor dos itens por pessoa
+
+       Carne
+- Picanha R$ 26,98
+- Linguica R$ 17,46
+- Asa/Coxa R$ 6,00
+
+       Refrigerante
+- Coca-Cola R$ 8,17
+
+       Cerveja
+- Heineken 5 latas R$ 32,95 (UNI R$ 6,59) 
 
 
- 3 carnes
-Picanha - 29,98
-Asa/coxa de frango - 6
-Linguica -  17,46
+Fluxo do código
+  
+- Resumo dos dados gerais 
+- Mostrar menu de opções (cadastro de convidados, comidas e bebidas)
+- Cadastrando os convidados
+- Cadastrando comida e bebidas (Usuário escolhe o tipo de cadastro
+- Exibir valor aproximado por pessoa
 
- 2 bebidas
-Coca - 8,17 por 1,5 litros
-Heineken - 32,95 - 5 por pessoa (6,59 unitário)
+Funcionamento de cálculos
+
+- Cadastro de carnes irá ser (1kg - 55%)
+- Cadastro de cervejas será o valor de uma x 5
+
+Informativos do programa
+De acordo com pesquisas, cada pessoa consome em um churrasco:
+- 450g de carne por pessoa
+- 1.5l de refrigerante
+- 5 latas de 330ml
