@@ -8,7 +8,7 @@ public class View {
 
 	public static void main(String[] args) {
 		MenuOpcoes menuOpcoes = new MenuOpcoes();
- // teste
+ // testando se eu consegui resolver o bug
 		int escolhaUsuario = 0;
 		do {
 			switch (escolhaUsuario) {
