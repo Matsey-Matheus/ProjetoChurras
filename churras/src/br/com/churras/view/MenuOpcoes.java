@@ -2,8 +2,7 @@ package br.com.churras.view;
 
 public class MenuOpcoes {
 	public void menuOpcoes() {
-		System.out.println("informacoes sobre as comidas");
-		System.out.println("1 - cadastro de convidados \n2 - Cadastro de comidas \n3 - Cadastro de bebidas \n4exibir valor por pessoa");
+		System.out.println("\n  1 - cadastro de convidados \n  2 - Cadastro de comidas \n  3 - Cadastro de bebidas \n  4 - exibir valor por pessoa");
 
 	}
 
