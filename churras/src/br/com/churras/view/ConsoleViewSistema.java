@@ -20,7 +20,7 @@ public class ConsoleViewSistema {
 		System.out.println("Com base nesses dados fizemos um sistema para calcular o valor total do churrasco");
 		System.out.println("e valor que cada pessoa vai precisar pagar");
 		System.out.println("Tendo em Base que o valor dos itens para o churasco e de de");
-		System.out.println("------------- ============================= -------------");
+		System.out.println("--------------- =============================== ---------------");
 		System.out.println("");
 
 	}
@@ -45,9 +45,7 @@ public class ConsoleViewSistema {
 	 * 
 	 */
 	public void menuOpcoes() {
-		System.out.println(
-				"\n  1 - cadastro de convidados \n  2 - Cadastro de comidas \n  3 - Cadastro de bebidas \n  4 - exibir valor por pessoa \n");
-
+		System.out.println("\n  1 - cadastro de convidados \n  2 - Cadastro de comidas \n  3 - Cadastro de bebidas \n  4 - exibir valor por pessoa \n");
 	}
 
 	public void itensCadastrados(ItensChurrasService item) {
