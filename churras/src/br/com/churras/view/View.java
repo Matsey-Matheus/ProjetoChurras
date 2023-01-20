@@ -1,5 +1,11 @@
 package br.com.churras.view;
 
+import java.math.BigDecimal;
+import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
+
+import br.com.churras.model.Item;
 import br.com.churras.service.ItensChurrasService;
 
 public class View {
@@ -11,7 +17,9 @@ public class View {
 		
 		view.inicializacaoSistema(item);
 		
-		/* TESTES DE ADIÇÃO DE ITEM
+		item.limpaApenasItemSelecionado("carne", "Linguica");
+		
+		/*
 		Map<String, List<Item>> itens = item.getMapa();
 
 		List<Item> carnes = itens.get("carne");
@@ -25,7 +33,8 @@ public class View {
 
 		carnes.add(new Item(nome, BigDecimal.valueOf(valor)));
 		itens.put("carne", carnes);
-		*/
 		
+		view.itensCadastrados(item);
+		*/
 	}
 }

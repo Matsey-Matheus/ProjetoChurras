@@ -5,12 +5,20 @@ import java.util.Scanner;
 import br.com.churras.model.Item;
 import br.com.churras.service.ItensChurrasService;
 
+/**
+ * 
+ * 
+ * @author Matheus Martins 
+ * @author Miguel Arcanjo
+ * @author Bruno Polido
+ *
+ */
 public class ConsoleViewSistema {
 
 	public void inicializacaoSistema(ItensChurrasService item) {
 		item.preCadastroItensBase();
-		itensCadastrados(item);
-		menuOpcoes();
+//		itensCadastrados(item);
+//		menuOpcoes();
 	}
 
 	public void informacao() {
@@ -31,17 +39,24 @@ public class ConsoleViewSistema {
 	 * A tela deverá iniciar com informações mais simples,
 	 * por exemplo:
 	 * 				( 
-	 * 					1 - Cadastrar
-	 * 					2 - Itens
-	 * 					3 - Convidados
-	 * 					4 - Calcular
-	 * 					5 - Como usar o programa
+	 * 					1 - Cadastrar (
+	 * 							1 - Itens (dentro de convidados)
+	 * 							2 - Convidados (dentro de convidados)
+	 * 						)
+	 * 					2 - Visualizar (
+	 * 							1 - Itens (dentro de convidados)
+	 * 							2 - Convidados (dentro de convidados)
+	 * 						)
+	 * 					3 - Calcular
+	 * 					4 - Como usar o programa
 	 * 				)
 	 * Assim em sequencia, por exemplo, digitou 1 (Cadastrar), entrar na área de cadastro
 	 * mostrando em 3 opções o que a pessoa quer cadastrar (carne, refri ou cerveja).
 	 * 
 	 * Nas opções Itens ou Convidados, ter três opções para seleção do usuário, a primeira de visualizar,
 	 * a segunda de remover apenas um e a última de limpas a lista.
+	 * 
+	 * @author Miguel Arcanjo
 	 * 
 	 */
 	public void menuOpcoes() {
@@ -105,7 +120,11 @@ public class ConsoleViewSistema {
 		scanner.close();
 	}
 	
-	//TODO CRIAR MENSAGEM DE INTRODUÇÃO (COMO USAR NOSSO PROGRAMA)
+	/**
+	 * TODO CRIAR MENSAGEM DE INTRODUÇÃO (COMO USAR NOSSO PROGRAMA)
+	 * 
+	 * @author Bruno Polido
+	 */
 	public void introducao() {
 		
 	}

@@ -1,24 +1,28 @@
 package br.com.churras.model;
 
+import java.util.LinkedList;
+import java.util.List;
+
+/**
+ * 
+ * 
+ * @author Matheus Martins
+ *
+ */
 public class Convidado {
 
 	// TODO FINALIZAR MODELO DE CONVIDADO (atributo "Nome", construtor e Getter Setter)
-	// TODO feito por Miguel
-	private String nome;
+	private List<String> nome = new LinkedList<>();
 
 	public Convidado() {
 	}
 
-	public Convidado(String nome) {
-		this.nome = nome;
-	}
-
-	public String getNome() {
+	public List<String> getNome() {
 		return nome;
 	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
+	
+	public void addConvido(String nome) {
+		this.nome.add(nome);
 	}
-
+	
 }
