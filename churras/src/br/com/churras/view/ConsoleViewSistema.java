@@ -8,7 +8,7 @@ import br.com.churras.service.ItensChurrasService;
 /**
  * 
  * 
- * @author Matheus Martins 
+ * @author Matheus Martins
  * @author Miguel Arcanjo
  * @author Bruno Polido
  *
@@ -16,7 +16,8 @@ import br.com.churras.service.ItensChurrasService;
 public class ConsoleViewSistema {
 
 	public void inicializacaoSistema(ItensChurrasService item) {
-		item.preCadastroItensBase();
+		selecao();
+//		item.preCadastroItensBase();
 //		itensCadastrados(item);
 //		menuOpcoes();
 	}
@@ -34,34 +35,23 @@ public class ConsoleViewSistema {
 	}
 
 	/**
-	 * TODO REFATORAR OPÇÕES DO MENU 
+	 * TODO REFATORAR OPÇÕES DO MENU
 	 * 
-	 * A tela deverá iniciar com informações mais simples,
-	 * por exemplo:
-	 * 				( 
-	 * 					1 - Cadastrar (
-	 * 							1 - Itens (dentro de convidados)
-	 * 							2 - Convidados (dentro de convidados)
-	 * 						)
-	 * 					2 - Visualizar (
-	 * 							1 - Itens (dentro de convidados)
-	 * 							2 - Convidados (dentro de convidados)
-	 * 						)
-	 * 					3 - Calcular
-	 * 					4 - Como usar o programa
-	 * 				)
-	 * Assim em sequencia, por exemplo, digitou 1 (Cadastrar), entrar na área de cadastro
-	 * mostrando em 3 opções o que a pessoa quer cadastrar (carne, refri ou cerveja).
+	 * A tela deverá iniciar com informações mais simples, por exemplo: ( 1 -
+	 * Cadastrar ( 1 - Itens (dentro de convidados) 2 - Convidados (dentro de
+	 * convidados) ) 2 - Visualizar ( 1 - Itens (dentro de convidados) 2 -
+	 * Convidados (dentro de convidados) ) 3 - Calcular 4 - Como usar o programa )
+	 * Assim em sequencia, por exemplo, digitou 1 (Cadastrar), entrar na área de
+	 * cadastro mostrando em 3 opções o que a pessoa quer cadastrar (carne, refri ou
+	 * cerveja).
 	 * 
-	 * Nas opções Itens ou Convidados, ter três opções para seleção do usuário, a primeira de visualizar,
-	 * a segunda de remover apenas um e a última de limpas a lista.
+	 * Nas opções Itens ou Convidados, ter três opções para seleção do usuário, a
+	 * primeira de visualizar, a segunda de remover apenas um e a última de limpas a
+	 * lista.
 	 * 
 	 * @author Miguel Arcanjo
 	 * 
 	 */
-	public void menuOpcoes() {
-		System.out.println("\n  1 - cadastro de convidados \n  2 - Cadastro de comidas \n  3 - Cadastro de bebidas \n  4 - exibir valor por pessoa \n");
-	}
 
 	public void itensCadastrados(ItensChurrasService item) {
 		System.out.println("------------- Itens cadastrados -------------");
@@ -82,13 +72,18 @@ public class ConsoleViewSistema {
 		System.out.println("------------- ============================= -------------");
 	}
 
+	public void menuOpcoes() {
+		System.out.println("\n------------- Tela Inicial -------------");
+		System.out.println("\n  1 - Cadastrar \n  2 - Visualizar \n  3 - Calcular Valor por Pessoa \n  4 - Como Usar o Sistema \n  0 - Sair");
+	}
+
 	public void selecao() {
 		// OBJETOS
 		Scanner scanner = new Scanner(System.in);
 
 		// VARIAVEIS
 		int escolhaUsuario = 0;
-		int continuarLoop = 0;
+		int continuarLoop = 1;
 
 		do {
 			menuOpcoes();
@@ -96,7 +91,42 @@ public class ConsoleViewSistema {
 
 			switch (escolhaUsuario) {
 			case 1: {
-				System.out.println("              Cadastrar Convidados");
+				int continuarLoop2 = 0;
+				do {
+					System.out.println("\n------------- Tela de Cadastros -------------\n");
+					System.out.println("              Você deseja cadastrar: ");
+					System.out.println("    1 - Convidados \n    2 - Carnes \n    3 - Refrigerante \n    4 - Cervejas \n    0 - Voltar");
+					escolhaUsuario = scanner.nextInt();
+					switch (escolhaUsuario) {
+					case 1: {
+						System.out.println("Cadastrar Convidados...");
+						continuarLoop2 = 0;
+						break;
+					}
+					case 2: {
+						System.out.println("Cadastrar Carnes...");
+						continuarLoop2 = 0;
+						break;
+					}
+					case 3: {
+						System.out.println("Cadastrar Refrigerantes...");
+						continuarLoop2 = 0;
+						break;
+					}
+					case 4: {
+						System.out.println("Cadastrar Cervejas...");
+						continuarLoop2 = 0;
+						break;
+					}
+					case 0: {
+						System.out.println("Voltando para a tela inicial...");
+						continuarLoop2 = 1;
+						break;
+					}
+					default:
+						System.out.println("Escolha uma opcao valida");
+					}
+				} while (continuarLoop2 == 0);
 				break;
 			}
 			case 2: {
@@ -107,8 +137,9 @@ public class ConsoleViewSistema {
 				System.out.println("              Cadastrar Bebidas");
 				break;
 			}
-			case 4: {
-				System.out.println("              Exibir Valor Total Por Pessoa");
+			case 0: { // sair
+				System.out.println("              Saindo do Programa...");
+				continuarLoop = 0;
 				break;
 			}
 			default:
@@ -119,14 +150,14 @@ public class ConsoleViewSistema {
 
 		scanner.close();
 	}
-	
+
 	/**
 	 * TODO CRIAR MENSAGEM DE INTRODUÇÃO (COMO USAR NOSSO PROGRAMA)
 	 * 
 	 * @author Bruno Polido
 	 */
 	public void introducao() {
-		
+
 	}
 
 }
