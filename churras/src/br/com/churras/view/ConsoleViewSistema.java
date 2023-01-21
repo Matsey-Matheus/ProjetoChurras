@@ -14,8 +14,7 @@ import br.com.churras.service.ItensChurrasService;
  *
  */
 public class ConsoleViewSistema {
-	// TESTE DE COMMIT
-	
+
 	public void inicializacaoSistema(ItensChurrasService item) {
 		item.preCadastroItensBase();
 //		itensCadastrados(item);
