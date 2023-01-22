@@ -74,8 +74,7 @@ public class ConsoleViewSistema {
 
 	public void menuOpcoes() {
 		System.out.println("\n------------- Tela Inicial -------------");
-		System.out.println(
-				"\n  1 - Cadastrar \n  2 - Visualizar \n  3 - Calcular Valor por Pessoa \n  4 - Como Usar o Sistema \n  0 - Sair");
+		System.out.println("\n  1 - Cadastrar \n  2 - Visualizar \n  3 - Calcular Valor por Pessoa \n  4 - Como Usar o Sistema \n  0 - Sair");
 	}
 
 	public void selecao() {
@@ -96,27 +95,30 @@ public class ConsoleViewSistema {
 				do {
 					System.out.println("\n------------- Tela de Cadastros -------------\n");
 					System.out.println("              Você deseja cadastrar: ");
-					System.out.println(
-							"    1 - Convidados \n    2 - Carnes \n    3 - Refrigerante \n    4 - Cervejas \n    0 - Voltar");
+					System.out.println("    1 - Convidados \n    2 - Carnes \n    3 - Refrigerante \n    4 - Cervejas \n    0 - Voltar");
 					escolhaUsuario = scanner.nextInt();
 					switch (escolhaUsuario) {
 					case 1: {
 						System.out.println("Cadastrar Convidados...");
+						// TODO metodo para cadastrar convidados
 						continuarCadastro = 0;
 						break;
 					}
 					case 2: {
 						System.out.println("Cadastrar Carnes...");
+						// TODO metodo para cadastrar carnes
 						continuarCadastro = 0;
 						break;
 					}
 					case 3: {
 						System.out.println("Cadastrar Refrigerantes...");
+						// TODO metodo para cadastrar refrigerantes
 						continuarCadastro = 0;
 						break;
 					}
 					case 4: {
 						System.out.println("Cadastrar Cervejas...");
+						// TODO metodo para cadastrar cervejas
 						continuarCadastro = 0;
 						break;
 					}
@@ -136,27 +138,30 @@ public class ConsoleViewSistema {
 				do {
 					System.out.println("\n------------- Tela de Visualização-------------\n");
 					System.out.println("              Você deseja visualizar: ");
-					System.out.println(
-							"    1 - Convidados \n    2 - Carnes \n    3 - Refrigerante \n    4 - Cervejas \n    0 - Voltar");
+					System.out.println("    1 - Convidados \n    2 - Carnes \n    3 - Refrigerante \n    4 - Cervejas \n    0 - Voltar");
 					escolhaUsuario = scanner.nextInt();
 					switch (escolhaUsuario) {
 					case 1: {
 						System.out.println("Visualizar Convidados...");
+						// TODO metodo para visualizar convidados
 						continuarVisualizacao = 0;
 						break;
 					}
 					case 2: {
 						System.out.println("Visualizar Carnes...");
+						// TODO metodo para visualizar carnes
 						continuarVisualizacao = 0;
 						break;
 					}
 					case 3: {
 						System.out.println("Visualizar Refrigerantes...");
+						// TODO metodo para visualizar refrigerantes
 						continuarVisualizacao = 0;
 						break;
 					}
 					case 4: {
 						System.out.println("Visualizar Cervejas...");
+						// TODO metodo para visualizar cervejas
 						continuarVisualizacao = 0;
 						break;
 					}
