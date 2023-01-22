@@ -17,7 +17,7 @@ public class View {
 		
 		view.inicializacaoSistema(item);
 		
-		item.limpaApenasItemSelecionado("carne", "Linguica");
+//		item.limpaApenasItemSelecionado("carne", "Linguica");
 		
 		/*
 		Map<String, List<Item>> itens = item.getMapa();
