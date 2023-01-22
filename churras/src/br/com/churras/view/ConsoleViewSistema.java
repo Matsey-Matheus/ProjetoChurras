@@ -203,7 +203,7 @@ public class ConsoleViewSistema {
 
 	/**
 	 * TODO CRIAR MENSAGEM DE INTRODUÇÃO (COMO USAR NOSSO PROGRAMA)
-	 *  aoskasokasokas
+	 *  
 	 * @author Bruno Polido
 	 */
 	public void introducao() {
