@@ -74,7 +74,8 @@ public class ConsoleViewSistema {
 
 	public void menuOpcoes() {
 		System.out.println("\n------------- Tela Inicial -------------");
-		System.out.println("\n  1 - Cadastrar \n  2 - Visualizar \n  3 - Calcular Valor por Pessoa \n  4 - Como Usar o Sistema \n  0 - Sair");
+		System.out.println(
+				"\n  1 - Cadastrar \n  2 - Visualizar \n  3 - Calcular Valor por Pessoa \n  4 - Como Usar o Sistema \n  0 - Sair");
 	}
 
 	public void selecao() {
@@ -91,50 +92,94 @@ public class ConsoleViewSistema {
 
 			switch (escolhaUsuario) {
 			case 1: {
-				int continuarLoop2 = 0;
+				int continuarCadastro = 0;
 				do {
 					System.out.println("\n------------- Tela de Cadastros -------------\n");
 					System.out.println("              Você deseja cadastrar: ");
-					System.out.println("    1 - Convidados \n    2 - Carnes \n    3 - Refrigerante \n    4 - Cervejas \n    0 - Voltar");
+					System.out.println(
+							"    1 - Convidados \n    2 - Carnes \n    3 - Refrigerante \n    4 - Cervejas \n    0 - Voltar");
 					escolhaUsuario = scanner.nextInt();
 					switch (escolhaUsuario) {
 					case 1: {
 						System.out.println("Cadastrar Convidados...");
-						continuarLoop2 = 0;
+						continuarCadastro = 0;
 						break;
 					}
 					case 2: {
 						System.out.println("Cadastrar Carnes...");
-						continuarLoop2 = 0;
+						continuarCadastro = 0;
 						break;
 					}
 					case 3: {
 						System.out.println("Cadastrar Refrigerantes...");
-						continuarLoop2 = 0;
+						continuarCadastro = 0;
 						break;
 					}
 					case 4: {
 						System.out.println("Cadastrar Cervejas...");
-						continuarLoop2 = 0;
+						continuarCadastro = 0;
 						break;
 					}
 					case 0: {
 						System.out.println("Voltando para a tela inicial...");
-						continuarLoop2 = 1;
+						continuarCadastro = 1;
 						break;
 					}
 					default:
 						System.out.println("Escolha uma opcao valida");
 					}
-				} while (continuarLoop2 == 0);
+				} while (continuarCadastro == 0);
 				break;
 			}
 			case 2: {
-				System.out.println("              Cadastrar Carnes");
+				int continuarVisualizacao = 0;
+				do {
+					System.out.println("\n------------- Tela de Visualização-------------\n");
+					System.out.println("              Você deseja visualizar: ");
+					System.out.println(
+							"    1 - Convidados \n    2 - Carnes \n    3 - Refrigerante \n    4 - Cervejas \n    0 - Voltar");
+					escolhaUsuario = scanner.nextInt();
+					switch (escolhaUsuario) {
+					case 1: {
+						System.out.println("Visualizar Convidados...");
+						continuarVisualizacao = 0;
+						break;
+					}
+					case 2: {
+						System.out.println("Visualizar Carnes...");
+						continuarVisualizacao = 0;
+						break;
+					}
+					case 3: {
+						System.out.println("Visualizar Refrigerantes...");
+						continuarVisualizacao = 0;
+						break;
+					}
+					case 4: {
+						System.out.println("Visualizar Cervejas...");
+						continuarVisualizacao = 0;
+						break;
+					}
+					case 0: {
+						System.out.println("Voltando para a tela inicial...");
+						continuarVisualizacao = 1;
+						break;
+					}
+					default:
+						System.out.println("Escolha uma opcao valida");
+					}
+				} while (continuarVisualizacao == 0);
 				break;
 			}
 			case 3: {
-				System.out.println("              Cadastrar Bebidas");
+				System.out.println("\n------------- Como Funciona o Sistema -------------\n");
+				// TODO metodo de como funciona o programa
+				break;
+			}
+			case 4: {
+				System.out.println("\n------------- Calcular Valor por Pessoa -------------\n");
+				// TODO metodo para calcular valor por pessoa
+				System.out.println("O valor parcial para cada pessoa vai ficar: ");
 				break;
 			}
 			case 0: { // sair
