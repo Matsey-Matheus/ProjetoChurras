@@ -214,9 +214,9 @@ public class ConsoleViewSistema {
 		System.out.println("= 2 - Para Cadastrar Carnes");
 		System.out.println("	Para Cadastrar uma carne voce precisara Colocar o nome da carne e quantidade de 1Kg");
 		System.out.println("= 3 - Para Cadastrar Refrigerante");
-		System.out.println("	Para Cadastrar um Novo Refrigerante Voce pode colocar a quantidade de Refrigerante ex 1 ou 2");
+		System.out.println("	Para Cadastrar um Novo Refrigerante Voce pode colocar a quantidade de Refrigerante ex 1 equivale a 1.5 litros");
 		System.out.println("= 4 - Para Cadastrar Cerveja");
-		System.out.println("	Para Cadastrar Cerveja e nessesario colocar o nome e a quantidade de 1 equivale a 5 latas de cerveja \n");
+		System.out.println("	Para Cadastrar Cerveja e nessesario colocar o nome e a quantidade de 1 equivale a 5 latas de cerveja cada lata tem 330ml \n");
 		System.out.println("2 - Entra no Menu de Visualizar Convidados e Produtos cadastrados para o churasco\n");
 		System.out.println("3 -	Caucula o valor por pessoa ira mostra o valor que saira para cada pessoa o churrasco ");
 		System.out.println(" ----------------------------------");
