@@ -1,7 +1,10 @@
 package br.com.churras.view;
 
+import java.math.BigDecimal;
+import java.util.Date;
 import java.util.Scanner;
 
+import br.com.churras.component.ChurrasComponent;
 import br.com.churras.model.Item;
 import br.com.churras.service.ItensChurrasService;
 
@@ -16,9 +19,9 @@ import br.com.churras.service.ItensChurrasService;
 public class ConsoleViewSistema {
 
 	public void inicializacaoSistema(ItensChurrasService item) {
-		selecao();
-//		item.preCadastroItensBase();
+		item.preCadastroItensBase();
 //		itensCadastrados(item);
+		selecao(item);
 //		menuOpcoes();
 	}
 
@@ -74,12 +77,14 @@ public class ConsoleViewSistema {
 
 	public void menuOpcoes() {
 		System.out.println("\n------------- Tela Inicial -------------");
-		System.out.println("\n  1 - Cadastrar \n  2 - Visualizar \n  3 - Calcular Valor por Pessoa \n  4 - Como Usar o Sistema \n  0 - Sair");
+		System.out.println(
+				"\n  1 - Cadastrar \n  2 - Visualizar \n  3 - Calcular Valor por Pessoa \n  4 - Como Usar o Sistema \n  0 - Sair");
 	}
 
-	public void selecao() {
+	public void selecao(ItensChurrasService item) {
 		// OBJETOS
 		Scanner scanner = new Scanner(System.in);
+		ChurrasComponent churrasComponent = new ChurrasComponent();
 
 		// VARIAVEIS
 		int escolhaUsuario = 0;
@@ -87,104 +92,26 @@ public class ConsoleViewSistema {
 
 		do {
 			menuOpcoes();
-			escolhaUsuario = scanner.nextInt();
-
+			escolhaUsuario = scanner.nextInt();				
+		
 			switch (escolhaUsuario) {
 			case 1: {
-				int continuarCadastro = 0;
-				do {
-					System.out.println("\n------------- Tela de Cadastros -------------\n");
-					System.out.println("              Você deseja cadastrar: ");
-					System.out.println("    1 - Convidados \n    2 - Carnes \n    3 - Refrigerante \n    4 - Cervejas \n    0 - Voltar");
-					escolhaUsuario = scanner.nextInt();
-					switch (escolhaUsuario) {
-					case 1: {
-						System.out.println("Cadastrar Convidados...");
-						// TODO metodo para cadastrar convidados
-						continuarCadastro = 0;
-						break;
-					}
-					case 2: {
-						System.out.println("Cadastrar Carnes...");
-						// TODO metodo para cadastrar carnes
-						continuarCadastro = 0;
-						break;
-					}
-					case 3: {
-						System.out.println("Cadastrar Refrigerantes...");
-						// TODO metodo para cadastrar refrigerantes
-						continuarCadastro = 0;
-						break;
-					}
-					case 4: {
-						System.out.println("Cadastrar Cervejas...");
-						// TODO metodo para cadastrar cervejas
-						continuarCadastro = 0;
-						break;
-					}
-					case 0: {
-						System.out.println("Voltando para a tela inicial...");
-						continuarCadastro = 1;
-						break;
-					}
-					default:
-						System.out.println("Escolha uma opcao valida");
-					}
-				} while (continuarCadastro == 0);
+				churrasComponent.cadastrar(escolhaUsuario);
 				break;
 			}
 			case 2: {
-				int continuarVisualizacao = 0;
-				do {
-					System.out.println("\n------------- Tela de Visualização-------------\n");
-					System.out.println("              Você deseja visualizar: ");
-					System.out.println("    1 - Convidados \n    2 - Carnes \n    3 - Refrigerante \n    4 - Cervejas \n    0 - Voltar");
-					escolhaUsuario = scanner.nextInt();
-					switch (escolhaUsuario) {
-					case 1: {
-						System.out.println("Visualizar Convidados...");
-						// TODO metodo para visualizar convidados
-						continuarVisualizacao = 0;
-						break;
-					}
-					case 2: {
-						System.out.println("Visualizar Carnes...");
-						// TODO metodo para visualizar carnes
-						continuarVisualizacao = 0;
-						break;
-					}
-					case 3: {
-						System.out.println("Visualizar Refrigerantes...");
-						// TODO metodo para visualizar refrigerantes
-						continuarVisualizacao = 0;
-						break;
-					}
-					case 4: {
-						System.out.println("Visualizar Cervejas...");
-						// TODO metodo para visualizar cervejas
-						continuarVisualizacao = 0;
-						break;
-					}
-					case 0: {
-						System.out.println("Voltando para a tela inicial...");
-						continuarVisualizacao = 1;
-						break;
-					}
-					default:
-						System.out.println("Escolha uma opcao valida");
-					}
-				} while (continuarVisualizacao == 0);
+				churrasComponent.vizualizar(escolhaUsuario);
 				break;
 			}
 			case 3: {
-				System.out.println("\n------------- Como Funciona o Sistema -------------\n");
-				// TODO metodo de como funciona o programa
+				BigDecimal total = churrasComponent.valorCalculoPessoa(item);
+				System.out.println("O valor parcial para cada pessoa vai ficar: " + total);
 				break;
+
 			}
 			case 4: {
-				System.out.println("\n------------- Calcular Valor por Pessoa -------------\n");
-				// TODO metodo para calcular valor por pessoa
-				System.out.println("O valor parcial para cada pessoa vai ficar: ");
+				System.out.println("\n------------- Como Funciona o Sistema -------------\n");
+				introducao();
 				break;
 			}
 			case 0: { // sair
@@ -207,7 +134,7 @@ public class ConsoleViewSistema {
 	 * @author Bruno Polido
 	 */
 	public void introducao() {
-		
+
 	}
 
 }
