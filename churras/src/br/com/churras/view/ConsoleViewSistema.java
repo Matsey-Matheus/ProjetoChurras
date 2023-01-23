@@ -218,7 +218,7 @@ public class ConsoleViewSistema {
 		System.out.println("= 4 - Para Cadastrar Cerveja");
 		System.out.println("	Para Cadastrar Cerveja e nessesario colocar o nome e a quantidade de 1 equivale a 5 latas de cerveja cada lata tem 330ml \n");
 		System.out.println("2 - Entra no Menu de Visualizar Convidados e Produtos cadastrados para o churasco\n");
-		System.out.println("3 -	Caucula o valor por pessoa ira mostra o valor que saira para cada pessoa o churrasco ");
+		System.out.println("3 -	Calcula o valor por pessoa ira mostra o valor que saira para cada pessoa o churrasco ");
 		System.out.println(" ----------------------------------");
 
 	}
