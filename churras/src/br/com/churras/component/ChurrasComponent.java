@@ -124,8 +124,6 @@ public class ChurrasComponent {
 		System.out.println("");
 		BigDecimal total = carneTotal.add(brejaTotal.add(refriTotal));
 		
-		scanner.close();
-		
 		return total;
 		
 	}

@@ -1,11 +1,5 @@
 package br.com.churras.view;
 
-import java.math.BigDecimal;
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
-
-import br.com.churras.model.Item;
 import br.com.churras.service.ItensChurrasService;
 
 public class View {
@@ -16,6 +10,10 @@ public class View {
 		ConsoleViewSistema view = new ConsoleViewSistema();
 		
 		view.inicializacaoSistema(item);
+		
+		
+		
+    
 		
 //		item.limpaApenasItemSelecionado("carne", "Linguica");
 		

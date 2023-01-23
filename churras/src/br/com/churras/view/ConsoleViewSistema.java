@@ -1,6 +1,7 @@
 package br.com.churras.view;
 
 import java.math.BigDecimal;
+import java.time.LocalTime;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -85,15 +86,23 @@ public class ConsoleViewSistema {
 		// OBJETOS
 		Scanner scanner = new Scanner(System.in);
 		ChurrasComponent churrasComponent = new ChurrasComponent();
+		LocalTime startTime = LocalTime.now();
 
 		// VARIAVEIS
 		int escolhaUsuario = 0;
 		int continuarLoop = 1;
 
 		do {
-			menuOpcoes();
-			escolhaUsuario = scanner.nextInt();				
-		
+	        while (true) {
+	        	LocalTime currentTime = LocalTime.now();
+	            long seconds = currentTime.toSecondOfDay() - startTime.toSecondOfDay();
+	            if(seconds == 3) {
+	            	menuOpcoes();
+	            	escolhaUsuario = scanner.nextInt();	
+	            	break;
+	            }
+	        }
+	    	
 			switch (escolhaUsuario) {
 			case 1: {
 				churrasComponent.cadastrar(escolhaUsuario);
