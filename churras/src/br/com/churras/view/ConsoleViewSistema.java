@@ -23,7 +23,7 @@ public class ConsoleViewSistema {
 	}
 
 	public void informacao() {
-		System.out.println("------------- APRESENTAÇÂO DO SISTEMA E COMO USAR -------------");
+		System.out.println("------------- APRESENTAÇÂO DO SISTEMA -------------");
 		System.out.println("De acordo com a pesquisa feita cada pessoa em um churrasco consome 450g de carne");
 		System.out.println("1.5l de refrigerante ou 5 latas de 330ml");
 		System.out.println("Com base nesses dados fizemos um sistema para calcular o valor total do churrasco");
@@ -203,11 +203,23 @@ public class ConsoleViewSistema {
 
 	/**
 	 * TODO CRIAR MENSAGEM DE INTRODUÇÃO (COMO USAR NOSSO PROGRAMA)
-	 * 
 	 * @author Bruno Polido
 	 */
 	public void introducao() {
-		
+		System.out.println("-------- Como Usar O Sistema -------");
+		System.out.println("1 - Entra no Menu de Cadastrar Convidados e Produtos ira aparecer subcategorias de 1 a 4");
+		System.out.println("= 1 - Para Cadastrar Convidados");
+		System.out.println("	Para Cadastrar um Novo Convidado voce precisara Colocar o nome dele e aperta Enter");
+		System.out.println("= 2 - Para Cadastrar Carnes");
+		System.out.println("	Para Cadastrar uma carne voce precisara Colocar o nome da carne e quantidade de 1Kg");
+		System.out.println("= 3 - Para Cadastrar Refrigerante");
+		System.out.println("	Para Cadastrar um Novo Refrigerante Voce pode colocar a quantidade de Refrigerante ex 1 equivale a 1.5 litros");
+		System.out.println("= 4 - Para Cadastrar Cerveja");
+		System.out.println("	Para Cadastrar Cerveja e nessesario colocar o nome e a quantidade de 1 equivale a 5 latas de cerveja cada lata tem 330ml \n");
+		System.out.println("2 - Entra no Menu de Visualizar Convidados e Produtos cadastrados para o churasco\n");
+		System.out.println("3 -	Calcula o valor por pessoa ira mostra o valor que saira para cada pessoa o churrasco ");
+		System.out.println(" ----------------------------------");
+
 	}
 
 }
