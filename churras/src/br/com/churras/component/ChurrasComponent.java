@@ -1,104 +1,149 @@
 package br.com.churras.component;
 
-import java.math.BigDecimal;
-import java.util.Date;
+import java.util.List;
 import java.util.Scanner;
 
+import br.com.churras.model.BaseModel;
 import br.com.churras.model.Item;
-import br.com.churras.service.ItensChurrasService;
+import br.com.churras.view.CadastradoView;
 
 public class ChurrasComponent {
-
-	private Scanner scanner = new Scanner(System.in);
 	
-	public void cadastrar(int escolhaUsuario) {
-
+	@SuppressWarnings("resource")
+	public void cadastrar(BaseModel base) {
+		
+		CadastroComponent cadastro = new CadastroComponent();
+		
 		int continuarCadastro = 0;
 		do {
+			Scanner sc = new Scanner(System.in);
+			Scanner sc2 = new Scanner(System.in);
 			System.out.println("\n------------- Tela de Cadastros -------------\n");
-			System.out.println("              Você deseja cadastrar: ");
+			System.out.println("              Você deseja cadastrar: \n");
 			System.out.println("    1 - Convidados \n    2 - Carnes \n    3 - Refrigerante \n    4 - Cervejas \n    0 - Voltar");
-			escolhaUsuario = scanner.nextInt();
+			
+			System.out.print("\n Selecione: ");
+			int escolhaUsuario = sc.nextInt();
+			
 			switch (escolhaUsuario) {
+			
 			case 1: {
-				System.out.println("Cadastrar Convidados...");
-				// TODO metodo para cadastrar convidados
-				continuarCadastro = 0;
+				System.out.println("\n Cadastro de convidados...\n");
+				System.out.print(" Nome: ");
+				String nome = sc2.nextLine();
+				
+				cadastro.cadastrarConvidado(base.getConvidado(), nome);
 				break;
 			}
 			case 2: {
-				System.out.println("Cadastrar Carnes...");
+				System.out.println("\n Cadastro de carnes...\n");
+				List<Item> carnes = base.getMapaItens().get("carne");
+				
+				System.out.print(" Nome: ");
+				String nome = sc2.next();
+				System.out.print(" Valor: ");
+				Double valor = sc.nextDouble();
+			
+				cadastro.cadastrarItem(carnes, nome, valor);
+				
 				// TODO metodo para cadastrar carnes
-				continuarCadastro = 0;
 				break;
 			}
 			case 3: {
-				System.out.println("Cadastrar Refrigerantes...");
-				// TODO metodo para cadastrar refrigerantes
-				continuarCadastro = 0;
+				System.out.println("\n Cadastro de refrigerante...\n");
+				List<Item> refrigerante = base.getMapaItens().get("refrigerante");
+				
+				System.out.print(" Nome: ");
+				String nome = sc2.next();
+				System.out.print(" Valor: ");
+				Double valor = sc.nextDouble();
+			
+				cadastro.cadastrarItem(refrigerante, nome, valor);
+				
+				// TODO metodo para cadastrar carnes
 				break;
 			}
 			case 4: {
 				System.out.println("Cadastrar Cervejas...");
 				// TODO metodo para cadastrar cervejas
-				continuarCadastro = 0;
 				break;
 			}
 			case 0: {
-				System.out.println("Voltando para a tela inicial...");
+				System.out.println("\n   Voltando para a tela inicial...");
 				continuarCadastro = 1;
 				break;
 			}
 			default:
-				System.out.println("Escolha uma opcao valida");
+				System.err.println("   Escolha uma opcao valida");
 			}
+			
+			
 		} while (continuarCadastro == 0);
+		
+		System.out.println(base.getConvidado().getNome());
 	}
 	
-	public void vizualizar(int escolhaUsuario) {
+	@SuppressWarnings("resource")
+	public void vizualizar(BaseModel base) {
+		CadastradoView cadastrado = new CadastradoView();
+		Scanner scanner = new Scanner(System.in);
+		
 		int continuarVisualizacao = 0;
 		
 		do {
 			System.out.println("\n------------- Tela de Visualização-------------\n");
-			System.out.println("              Você deseja visualizar: ");
-			System.out.println("    1 - Convidados \n    2 - Carnes \n    3 - Refrigerante \n    4 - Cervejas \n    0 - Voltar");
-			escolhaUsuario = scanner.nextInt();
+			System.out.println("              Você deseja visualizar: \n");
+			System.out.println("    1 - Convidados \n    2 - Itens  \n    0 - Voltar");
+			
+			System.out.print("\n Selecione: ");
+			int escolhaUsuario = scanner.nextInt();
+			
 			switch (escolhaUsuario) {
 			case 1: {
-				System.out.println("Visualizar Convidados...");
-				// TODO metodo para visualizar convidados
-				continuarVisualizacao = 0;
+				if(!base.getConvidado().getNome().isEmpty()) {
+					System.out.println("\n Visualizar Convidados... \n");
+					cadastrado.convidadosCadastrados(base.getConvidado());
+					try {
+						Thread.sleep(3000);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}	
+				} else {
+					System.err.println("\n\tNenhum convidado cadastrado");
+				}
 				break;
 			}
 			case 2: {
-				System.out.println("Visualizar Carnes...");
-				// TODO metodo para visualizar carnes
-				continuarVisualizacao = 0;
-				break;
-			}
-			case 3: {
-				System.out.println("Visualizar Refrigerantes...");
-				// TODO metodo para visualizar refrigerantes
-				continuarVisualizacao = 0;
-				break;
-			}
-			case 4: {
-				System.out.println("Visualizar Cervejas...");
-				// TODO metodo para visualizar cervejas
-				continuarVisualizacao = 0;
+				if(!base.getMapaItens().isEmpty()) {
+					System.out.println("\n Visualizar Itens... \n");
+					
+					cadastrado.itensCadastrados(base.getMapaItens());
+					try {
+						Thread.sleep(3000);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}	
+				} else {
+					System.err.println("\n\tNenhum item cadastrado");
+				}
 				break;
 			}
 			case 0: {
-				System.out.println("Voltando para a tela inicial...");
+				System.out.println("\n   Voltando para a tela inicial...");
 				continuarVisualizacao = 1;
 				break;
 			}
 			default:
-				System.out.println("Escolha uma opcao valida");
+				System.err.println("\n   Escolha uma opcao valida");
 			}
 		} while (continuarVisualizacao == 0);
 	}
 	
+	
+	
+	/*
 	public BigDecimal valorCalculoPessoa(ItensChurrasService item) {
 		System.out.println("\n------------- Calcular Valor por Pessoa -------------\n");
 		
@@ -127,5 +172,5 @@ public class ChurrasComponent {
 		return total;
 		
 	}
-	
+	*/
 }

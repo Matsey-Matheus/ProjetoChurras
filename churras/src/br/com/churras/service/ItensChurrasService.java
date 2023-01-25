@@ -1,7 +1,6 @@
 package br.com.churras.service;
 
 import java.math.BigDecimal;
-import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -15,8 +14,6 @@ import br.com.churras.model.Item;
  */
 public class ItensChurrasService {
 
-	private Map<String, List<Item>> mapa = new HashMap<>();
-
 	/**
 	 * 
 	 * 
@@ -24,8 +21,8 @@ public class ItensChurrasService {
 	 * cria a lista vazia.
 	 * 
 	 * @return Retorna o mapa com as informações cadastradas
-	 */
-	public Map<String, List<Item>> getMapa() {
+	 *
+	public Map<String, List<Item>> getMapa(Map<String, List<Item>> mapa) {
 		if (!mapa.containsKey("carne")) {
 			mapa.put("carne", new LinkedList<>());
 		}
@@ -37,7 +34,7 @@ public class ItensChurrasService {
 		}
 
 		return mapa;
-	}
+	}*/
 
 	/**
 	 * 
@@ -47,7 +44,7 @@ public class ItensChurrasService {
 	 * 
 	 * @return Retorna o mapa com as informações cadastradas
 	 */
-	public void preCadastroItensBase() {
+	public void preCadastroItensBase(Map<String, List<Item>> mapa) {
 		List<Item> carnes = new LinkedList<>();
 		carnes.add(new Item("Picanha", BigDecimal.valueOf(26.98)));
 		carnes.add(new Item("Linguica", BigDecimal.valueOf(17.46)));
@@ -59,7 +56,7 @@ public class ItensChurrasService {
 		mapa.put("refrigerante", refrigerantes);
 
 		List<Item> cervejas = new LinkedList<>();
-		cervejas.add(new Item("Heineken 6 latas", BigDecimal.valueOf(32.95)));
+		cervejas.add(new Item("Heineken 5 latas", BigDecimal.valueOf(32.95)));
 		mapa.put("cerveja", cervejas);
 	}
 
@@ -82,7 +79,7 @@ public class ItensChurrasService {
 	 * 
 	 * @param tipo, nome
 	 */
-	public void limpaApenasItemSelecionado(String tipo, String nome) {
+	public void limpaApenasItemSelecionado(Map<String, List<Item>> mapa, String tipo, String nome) {
 		int linha = 0;
 		for (Item item : mapa.get(tipo)) {
 			if (item.getNome().equals(nome)) {
