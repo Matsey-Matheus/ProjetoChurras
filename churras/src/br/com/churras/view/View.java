@@ -1,21 +1,19 @@
 package br.com.churras.view;
 
-import java.math.BigDecimal;
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
-
-import br.com.churras.model.Item;
-import br.com.churras.service.ItensChurrasService;
+import br.com.churras.model.BaseModel;
 
 public class View {
 
 	public static void main(String[] args) {
-
-		ItensChurrasService item = new ItensChurrasService();
-		ConsoleViewSistema view = new ConsoleViewSistema();
 		
-		view.inicializacaoSistema(item);
+		BaseModel base = new BaseModel();
+		BaseView view = new BaseView();
+		
+		view.inicializacaoSistema(base);
+		
+		
+		
+    
 		
 //		item.limpaApenasItemSelecionado("carne", "Linguica");
 		
@@ -26,10 +24,7 @@ public class View {
 
 		Scanner sc = new Scanner(System.in);
 
-		System.out.print("Nome: ");
-		String nome = sc.next();
-		System.out.print("Valor: ");
-		Double valor = sc.nextDouble();
+		
 
 		carnes.add(new Item(nome, BigDecimal.valueOf(valor)));
 		itens.put("carne", carnes);

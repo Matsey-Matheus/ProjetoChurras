@@ -21,7 +21,7 @@ public class Convidado {
 		return nome;
 	}
 	
-	public void addConvido(String nome) {
+	public void addConvidado(String nome) {
 		this.nome.add(nome);
 	}
 	
