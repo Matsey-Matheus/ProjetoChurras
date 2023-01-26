@@ -28,8 +28,7 @@ public class ChurrasComponent {
 			switch (escolhaUsuario) {
 			
 			case 1: {
-				System.out.println("\n Cadastro de convidados...\n");
-				System.out.print(" Nome: ");
+				System.out.print("\n Digite o nome do convidado que deseja adicionar: ");
 				String nome = sc2.nextLine();
 				
 				cadastro.cadastrarConvidado(base.getConvidado(), nome);
@@ -139,6 +138,11 @@ public class ChurrasComponent {
 				System.err.println("\n   Escolha uma opcao valida");
 			}
 		} while (continuarVisualizacao == 0);
+	}
+	
+	public void deletar(BaseModel base) {
+		DeletarComponent deletarCompenent = new DeletarComponent();
+		// TODO metodo deletar compenent
 	}
 	
 	
