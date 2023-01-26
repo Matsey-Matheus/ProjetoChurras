@@ -3,7 +3,6 @@ package br.com.churras.view;
 import java.util.Scanner;
 
 import br.com.churras.component.ChurrasComponent;
-import br.com.churras.component.DeletarComponent;
 import br.com.churras.model.BaseModel;
 import br.com.churras.service.ItensChurrasService;
 
@@ -45,7 +44,6 @@ public class BaseView {
 	public void selecao(BaseModel base) {
 		Scanner scanner = new Scanner(System.in);
 		ChurrasComponent churrasComponent = new ChurrasComponent();
-		DeletarComponent deletarCompenent = new DeletarComponent();
 
 		int continuarLoop = 1;
 
@@ -65,7 +63,7 @@ public class BaseView {
 				break;
 			}
 			case 3: {
-				deletarCompenent.deletar();
+				churrasComponent.deletar(base);
 				break;
 			}
 			case 4: {
