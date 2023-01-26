@@ -28,8 +28,7 @@ public class ChurrasComponent {
 			switch (escolhaUsuario) {
 			
 			case 1: {
-				System.out.println("\n Cadastro de convidados...\n");
-				System.out.print(" Nome: ");
+				System.out.print(" Digite o nome do convidado que deseja adicionar: ");
 				String nome = sc2.nextLine();
 				
 				cadastro.cadastrarConvidado(base.getConvidado(), nome);
