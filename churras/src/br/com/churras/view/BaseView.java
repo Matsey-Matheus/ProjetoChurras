@@ -1,5 +1,6 @@
 package br.com.churras.view;
 
+import java.math.BigDecimal;
 import java.util.Scanner;
 
 import br.com.churras.component.ChurrasComponent;
@@ -95,19 +96,31 @@ public class BaseView {
 	 * @author Bruno Polido
 	 */
 	public void comoFuncionaSistema() {
-		System.out.println("1 - Entra no Menu de Cadastrar Convidados e Produtos ira aparecer subcategorias de 1 a 4");
-		System.out.println("= 1 - Para Cadastrar Convidados");
-		System.out.println("	Para Cadastrar um Novo Convidado voce precisara Colocar o nome dele e aperta Enter");
-		System.out.println("= 2 - Para Cadastrar Carnes");
-		System.out.println("	Para Cadastrar uma carne voce precisara Colocar o nome da carne e quantidade de 1Kg");
-		System.out.println("= 3 - Para Cadastrar Refrigerante");
-		System.out.println("	Para Cadastrar um Novo Refrigerante Voce pode colocar a quantidade de Refrigerante ex 1 equivale a 1.5 litros");
-		System.out.println("= 4 - Para Cadastrar Cerveja");
-		System.out.println("	Para Cadastrar Cerveja e nessesario colocar o nome e a quantidade de 1 equivale a 5 latas de cerveja cada lata tem 330ml \n");
-		System.out.println("2 - Entra no Menu de Visualizar Convidados e Produtos cadastrados para o churasco\n");
-		System.out.println("3 -	Calcula o valor por pessoa ira mostra o valor que saira para cada pessoa o churrasco ");
-		// TODO ajustar o numero das opcoes - (adicionei o deletar e coloquei na opcao 3)
-		// TODO informações sobre como remover
+		System.out.println("    1 - No Menu de Cadastrar ira aparecer subcategorias de 1 a 4");
+		System.out.println("    	1 - Cadastrar Convidados");
+		System.out.println("	        Para Cadastrar um Novo Convidado Você irá Precisar Colocar Somente o Nome Dele");
+		System.out.println("        2 - Cadastrar Carnes");
+		System.out.println("			Para Cadastrar uma Carne Você irá Precisar Colocar o Nome da Carne e a Quantidade de 1Kg");
+		System.out.println("        3 - Cadastrar Refrigerante");
+		System.out.println("			Para Cadastrar um Novo Refrigerante Você Irá Colocar a Quantidade de Refrigerante equivale a 1.5 litros");
+		System.out.println("        4 - Cadastrar Cerveja");
+		System.out.println("			Para Cadastrar Cerveja é Necessário Colocar o Nome e a Quantidade Equivalente a 1 Lata de Cerveja\n");
+		System.out.println("    2 - Visualizar");
+		System.out.println("		  Nesta Opção é Possível Visualizar os Convidados, Carnes, Refrigerantes e Cervejas Cadastrados Até o Momento no Sistema\n");
+		System.out.println("    3 - Deletar");
+		System.out.println("		  Você Terá Duas Opções de Remoção:");
+		System.out.println("    	     1 - Remover Tudo Oque Está Registrado no Sistema Até o Momento");
+		System.out.println("         	 2 - Remover Unitariamente (Dentro Desta Opção Você Poderá Escolher oque Remover em Cada uma das Opções Abaixo)");
+		System.out.println("    		     1 - Remover Convidados");
+		System.out.println(" 				 2 - Remover Refrigerantes");
+		System.out.println("    		     3 - Remover Cervejas\n");
+		System.out.println("    4 - Calcular Valor por Pessoa");
+		System.out.println("		O Sistema Irá Estipular um Valor por igual para o Churras de Acordo com a quantidade de Convidados registrados no sistema");
+		System.out.println("	      A Regra é a Seguinte:");
+		System.out.println("		    O Sistema irá pegar todas as carnes registradas e fazer um calculo para que cada carne tenha a mesma proporção em Kg");
+		System.out.println("    		O Sistema irá pegar todos os refrigerantes registrados e fazer um calculo para que cada refrigerante tenha a mesma proporção");
+		System.out.println("    		O Sistema irá pegar todas as cervejas registradas e fazer um calculo para que cada refrigerante tenha a mesma proporção em latas");
+		System.out.println("    		E depois irá somar cada item (carne, refrigerante e cerveja) - assim será gerado o valor que cada um terá que pagar no Churras");
 	}
 
 }

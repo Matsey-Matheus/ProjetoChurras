@@ -16,10 +16,12 @@ public class DeletarComponent {
 			digitado = scanner.nextInt();
 			switch (digitado) {
 			case 1: {
+				System.out.println("Remover Convidados...");
 				// TODO metodo para remover tudo (convidados e itens)
 				break;
 			}
 			case 2: {
+				System.out.println("Remover Unitariamente...");
 				removerUnitario();
 				break;
 			}
