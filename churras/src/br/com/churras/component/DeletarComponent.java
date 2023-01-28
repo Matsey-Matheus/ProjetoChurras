@@ -31,6 +31,7 @@ public class DeletarComponent {
 				System.out.println("   Escolha uma opcao valida");
 			}
 		} while(continuarDeletar == 0);
+		scanner.close();
 	}
 	
 	public void removerUnitario() {
