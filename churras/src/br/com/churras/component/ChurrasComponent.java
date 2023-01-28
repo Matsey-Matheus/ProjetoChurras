@@ -11,13 +11,13 @@ public class ChurrasComponent {
 	
 	@SuppressWarnings("resource")
 	public void cadastrar(BaseModel base) {
-		
 		CadastroComponent cadastro = new CadastroComponent();
+		
+		Scanner sc = new Scanner(System.in);
+		Scanner sc2 = new Scanner(System.in);
 		
 		int continuarCadastro = 0;
 		do {
-			Scanner sc = new Scanner(System.in);
-			Scanner sc2 = new Scanner(System.in);
 			System.out.println("\n------------- Tela de Cadastros -------------\n");
 			System.out.println("              Você deseja cadastrar: \n");
 			System.out.println("    1 - Convidados \n    2 - Carnes \n    3 - Refrigerante \n    4 - Cervejas \n    0 - Voltar");
@@ -44,8 +44,6 @@ public class ChurrasComponent {
 				Double valor = sc.nextDouble();
 			
 				cadastro.cadastrarItem(carnes, nome, valor);
-				
-				// TODO metodo para cadastrar carnes
 				break;
 			}
 			case 3: {
@@ -58,8 +56,6 @@ public class ChurrasComponent {
 				Double valor = sc.nextDouble();
 			
 				cadastro.cadastrarItem(refrigerante, nome, valor);
-				
-				// TODO metodo para cadastrar carnes
 				break;
 			}
 			case 4: {
@@ -75,11 +71,7 @@ public class ChurrasComponent {
 			default:
 				System.err.println("   Escolha uma opcao valida");
 			}
-			
-			
 		} while (continuarCadastro == 0);
-		
-		System.out.println(base.getConvidado().getNome());
 	}
 	
 	@SuppressWarnings("resource")
@@ -102,12 +94,6 @@ public class ChurrasComponent {
 				if(!base.getConvidado().getNome().isEmpty()) {
 					System.out.println("\n Visualizar Convidados... \n");
 					cadastrado.convidadosCadastrados(base.getConvidado());
-					try {
-						Thread.sleep(3000);
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}	
 				} else {
 					System.err.println("\n\tNenhum convidado cadastrado");
 				}
@@ -118,12 +104,6 @@ public class ChurrasComponent {
 					System.out.println("\n Visualizar Itens... \n");
 					
 					cadastrado.itensCadastrados(base.getMapaItens());
-					try {
-						Thread.sleep(3000);
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}	
 				} else {
 					System.err.println("\n\tNenhum item cadastrado");
 				}
@@ -141,7 +121,7 @@ public class ChurrasComponent {
 	}
 	
 	public void deletar(BaseModel base) {
-		DeletarComponent deletarCompenent = new DeletarComponent();
+//		DeletarComponent deletarCompenent = new DeletarComponent();
 		// TODO metodo deletar compenent
 	}
 	

@@ -2,7 +2,7 @@ package br.com.churras.view;
 
 import br.com.churras.model.BaseModel;
 
-public class View {
+public class Application {
 
 	public static void main(String[] args) {
 		
@@ -10,10 +10,6 @@ public class View {
 		BaseView view = new BaseView();
 		
 		view.inicializacaoSistema(base);
-		
-		
-		
-    
 		
 //		item.limpaApenasItemSelecionado("carne", "Linguica");
 		

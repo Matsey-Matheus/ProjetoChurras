@@ -13,29 +13,7 @@ import br.com.churras.model.Item;
  * 
  */
 public class ItensChurrasService {
-
-	/**
-	 * 
-	 * 
-	 * Método de retorno do mapa com os itens cadastrados caso o item não exista,
-	 * cria a lista vazia.
-	 * 
-	 * @return Retorna o mapa com as informações cadastradas
-	 *
-	public Map<String, List<Item>> getMapa(Map<String, List<Item>> mapa) {
-		if (!mapa.containsKey("carne")) {
-			mapa.put("carne", new LinkedList<>());
-		}
-		if (!mapa.containsKey("refrigerante")) {
-			mapa.put("refrigerante", new LinkedList<>());
-		}
-		if (!mapa.containsKey("cerveja")) {
-			mapa.put("cerveja", new LinkedList<>());
-		}
-
-		return mapa;
-	}*/
-
+	
 	/**
 	 * 
 	 * 
@@ -74,10 +52,10 @@ public class ItensChurrasService {
 
 	/**
 	 * 
-	 * 
 	 * Limpa apenas um item de uma lista.
 	 * 
 	 * @param tipo, nome
+	 * 
 	 */
 	public void limpaApenasItemSelecionado(Map<String, List<Item>> mapa, String tipo, String nome) {
 		int linha = 0;

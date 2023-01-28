@@ -21,9 +21,12 @@ public class BaseView {
 
 		itemService.preCadastroItensBase(base.getMapaItens());
 		selecao(base);
-//		menuOpcoes();
 	}
 
+	/**
+	 *
+	 * @author Bruno Polido
+	 */
 	public void informacao() {
 		System.out.println("------------- APRESENTAÇÂO DO SISTEMA -------------");
 		System.out.println("De acordo com a pesquisa feita cada pessoa em um churrasco consome 450g de carne");
@@ -36,6 +39,10 @@ public class BaseView {
 
 	}
 
+	/**
+	 * 
+	 * @author Miguel Arcanjo
+	 */
 	public void menuOpcoes() {
 		System.out.println("\n------------- Tela Inicial -------------");
 		System.out.println("\n  1 - Cadastrar \n  2 - Visualizar \n  3 - Deletar  \n  4 - Calcular Valor por Pessoa \n  5 - Como Usar o Sistema \n  0 - Sair");
@@ -67,23 +74,20 @@ public class BaseView {
 				break;
 			}
 			case 4: {
-//				BigDecimal total = churrasComponent.valorCalculoPessoa(item);
-				// System.out.println("O valor parcial para cada pessoa vai ficar: " + total);
+				//TODO Fazer base de calculo
 				break;
-
 			}
 			case 5: {
-				System.out.println("\n------------- Como Funciona o Sistema -------------\n");
 				comoFuncionaSistema();
 				break;
 			}
-			case 0: { // sair
-				System.out.println("\n          Saindo do Programa...");
+			case 0: {
+				System.out.println("\n\t Saindo do Programa...");
 				continuarLoop = 0;
 				break;
 			}
 			default:
-				System.out.println("Escolha Uma Opção Válida");
+				System.err.println("Escolha Uma Opção Válida");
 				continuarLoop = 1;
 			}
 		} while (continuarLoop == 1);
@@ -95,18 +99,19 @@ public class BaseView {
 	 * @author Bruno Polido
 	 */
 	public void comoFuncionaSistema() {
-		System.out.println("1 - Entra no Menu de Cadastrar Convidados e Produtos ira aparecer subcategorias de 1 a 4");
-		System.out.println("= 1 - Para Cadastrar Convidados");
-		System.out.println("	Para Cadastrar um Novo Convidado voce precisara Colocar o nome dele e aperta Enter");
-		System.out.println("= 2 - Para Cadastrar Carnes");
-		System.out.println("	Para Cadastrar uma carne voce precisara Colocar o nome da carne e quantidade de 1Kg");
-		System.out.println("= 3 - Para Cadastrar Refrigerante");
-		System.out.println("	Para Cadastrar um Novo Refrigerante Voce pode colocar a quantidade de Refrigerante ex 1 equivale a 1.5 litros");
-		System.out.println("= 4 - Para Cadastrar Cerveja");
-		System.out.println("	Para Cadastrar Cerveja e nessesario colocar o nome e a quantidade de 1 equivale a 5 latas de cerveja cada lata tem 330ml \n");
-		System.out.println("2 - Entra no Menu de Visualizar Convidados e Produtos cadastrados para o churasco\n");
-		System.out.println("3 -	Calcula o valor por pessoa ira mostra o valor que saira para cada pessoa o churrasco ");
-		// TODO ajustar o numero das opcoes - (adicionei o deletar e coloquei na opcao 3)
+		System.out.println("				  ------------- Como Funciona o Sistema -------------\n");
+		System.out.println("\t 1 - Entra no Menu de Cadastrar Convidados e Produtos ira aparecer subcategorias de 1 a 4");
+		System.out.println("\t\t = 1 - Para Cadastrar Convidados \n");
+		System.out.println("\t Para Cadastrar um Novo Convidado voce precisara Colocar o nome dele e aperta Enter");
+		System.out.println("\t\t = 2 - Para Cadastrar Carnes \n");
+		System.out.println("\t Para Cadastrar uma carne voce precisara Colocar o nome da carne e quantidade de 1Kg");
+		System.out.println("\t\t = 3 - Para Cadastrar Refrigerante \n");
+		System.out.println("\t Para Cadastrar um Novo Refrigerante Voce pode colocar a quantidade de Refrigerante ex 1 equivale a 1.5 litros");
+		System.out.println("\t\t = 4 - Para Cadastrar Cerveja \n");
+		System.out.println("\t Para Cadastrar Cerveja e nessesario colocar o nome e a quantidade de 1 equivale a 5 latas de cerveja cada lata tem 330ml \n");
+		System.out.println("\t 2 - Entra no Menu de Visualizar Convidados e Produtos cadastrados para o churasco \n");
+		System.out.println("\t 3 - Calcula o valor por pessoa ira mostra o valor que saira para cada pessoa o churrasco \n");
+		// TODO Atualizar informações
 		// TODO informações sobre como remover
 	}
 
