@@ -1,10 +1,9 @@
 package br.com.churras.view;
 
-import java.util.Scanner;
-
 import br.com.churras.component.ChurrasComponent;
 import br.com.churras.model.BaseModel;
 import br.com.churras.service.ItensChurrasService;
+import br.com.churras.util.LeitorDeDados;
 
 /**
  * 
@@ -49,7 +48,7 @@ public class BaseView {
 	}
 
 	public void selecao(BaseModel base) {
-		Scanner scanner = new Scanner(System.in);
+		LeitorDeDados scanner = new LeitorDeDados();
 		ChurrasComponent churrasComponent = new ChurrasComponent();
 
 		int continuarLoop = 1;
@@ -58,7 +57,7 @@ public class BaseView {
 			menuOpcoes();
 
 			System.out.print("\n Selecione: ");
-			int escolhaUsuario = scanner.nextInt();
+			int escolhaUsuario = scanner.pegarInteiroDigitado();
 
 			switch (escolhaUsuario) {
 			case 1: {
@@ -92,7 +91,7 @@ public class BaseView {
 			}
 		} while (continuarLoop == 1);
 
-		scanner.close();
+		scanner.fechar();
 	}
 
 	/**

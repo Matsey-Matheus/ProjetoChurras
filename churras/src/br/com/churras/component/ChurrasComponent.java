@@ -1,20 +1,19 @@
 package br.com.churras.component;
 
 import java.util.List;
-import java.util.Scanner;
 
 import br.com.churras.model.BaseModel;
 import br.com.churras.model.Item;
+import br.com.churras.util.LeitorDeDados;
 import br.com.churras.view.CadastradoView;
 
 public class ChurrasComponent {
 	
-	@SuppressWarnings("resource")
 	public void cadastrar(BaseModel base) {
 		CadastroComponent cadastro = new CadastroComponent();
 		
-		Scanner sc = new Scanner(System.in);
-		Scanner sc2 = new Scanner(System.in);
+		LeitorDeDados sc = new LeitorDeDados();
+		LeitorDeDados sc2 = new LeitorDeDados();
 		
 		int continuarCadastro = 0;
 		do {
@@ -23,13 +22,13 @@ public class ChurrasComponent {
 			System.out.println("    1 - Convidados \n    2 - Carnes \n    3 - Refrigerante \n    4 - Cervejas \n    0 - Voltar");
 			
 			System.out.print("\n Selecione: ");
-			int escolhaUsuario = sc.nextInt();
+			int escolhaUsuario = sc.pegarInteiroDigitado();
 			
 			switch (escolhaUsuario) {
 			
 			case 1: {
 				System.out.print("\n Digite o nome do convidado que deseja adicionar: ");
-				String nome = sc2.nextLine();
+				String nome = sc2.pegarTextoCompletoDigitado();
 				
 				cadastro.cadastrarConvidado(base.getConvidado(), nome);
 				break;
@@ -39,9 +38,9 @@ public class ChurrasComponent {
 				List<Item> carnes = base.getMapaItens().get("carne");
 				
 				System.out.print(" Nome: ");
-				String nome = sc2.next();
+				String nome = sc2.pegarTextoCompletoDigitado();
 				System.out.print(" Valor: ");
-				Double valor = sc.nextDouble();
+				Double valor = sc.pegarNumeroFracionadoDigitado();
 			
 				cadastro.cadastrarItem(carnes, nome, valor);
 				break;
@@ -51,9 +50,9 @@ public class ChurrasComponent {
 				List<Item> refrigerante = base.getMapaItens().get("refrigerante");
 				
 				System.out.print(" Nome: ");
-				String nome = sc2.next();
+				String nome = sc2.pegarTextoCompletoDigitado();
 				System.out.print(" Valor: ");
-				Double valor = sc.nextDouble();
+				Double valor = sc.pegarNumeroFracionadoDigitado();
 			
 				cadastro.cadastrarItem(refrigerante, nome, valor);
 				break;
@@ -77,7 +76,7 @@ public class ChurrasComponent {
 	@SuppressWarnings("resource")
 	public void vizualizar(BaseModel base) {
 		CadastradoView cadastrado = new CadastradoView();
-		Scanner scanner = new Scanner(System.in);
+		LeitorDeDados scanner = new LeitorDeDados();
 		
 		int continuarVisualizacao = 0;
 		
@@ -87,7 +86,7 @@ public class ChurrasComponent {
 			System.out.println("    1 - Convidados \n    2 - Itens  \n    0 - Voltar");
 			
 			System.out.print("\n Selecione: ");
-			int escolhaUsuario = scanner.nextInt();
+			int escolhaUsuario = scanner.pegarInteiroDigitado();
 			
 			switch (escolhaUsuario) {
 			case 1: {
