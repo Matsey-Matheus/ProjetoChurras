@@ -31,46 +31,45 @@ public class ChurrasComponent {
 				break;
 			}
 			case 2: {
-				System.out.println("\n Cadastro de carnes...\n");
+				view.printaMensagem("\n Cadastro de carnes...\n");
 				List<Item> carnes = base.getMapaItens().get("carne");
 				
-				System.out.print(" Nome: ");
+				view.printaMensagem(" Nome: ");
 				String nome = sc2.pegarTextoCompletoDigitado();
-				System.out.print(" Valor: ");
+				view.printaMensagem(" Valor: ");
 				Double valor = sc.pegarNumeroFracionadoDigitado();
 			
 				cadastro.cadastrarItem(carnes, nome, valor);
 				break;
 			}
 			case 3: {
-				System.out.println("\n Cadastro de refrigerante...\n");
+				view.printaMensagem("\n Cadastro de refrigerante...\n");
 				List<Item> refrigerante = base.getMapaItens().get("refrigerante");
 				
-				System.out.print(" Nome: ");
+				view.printaMensagem(" Nome: ");
 				String nome = sc2.pegarTextoCompletoDigitado();
-				System.out.print(" Valor: ");
+				view.printaMensagem(" Valor: ");
 				Double valor = sc.pegarNumeroFracionadoDigitado();
 			
 				cadastro.cadastrarItem(refrigerante, nome, valor);
 				break;
 			}
 			case 4: {
-				System.out.println("Cadastrar Cervejas...");
+				view.printaMensagem("Cadastrar Cervejas...");
 				// TODO metodo para cadastrar cervejas
 				break;
 			}
 			case 0: {
-				System.out.println("\n   Voltando para a tela inicial...");
+				view.printaMensagem("\n   Voltando para a tela inicial...");
 				continuarCadastro = 1;
 				break;
 			}
 			default:
-				System.err.println("   Escolha uma opcao valida");
+				view.printaMensagemErro("   Escolha uma opcao valida");
 			}
 		} while (continuarCadastro == 0);
 	}
 	
-	@SuppressWarnings("resource")
 	public void vizualizar(BaseModel base) {
 		CadastradoView cadastrado = new CadastradoView();
 		LeitorDeDados scanner = new LeitorDeDados();

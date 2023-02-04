@@ -6,4 +6,8 @@ public abstract class MensagemBaseView {
 		System.out.println(mensagem);
 	}
 	
+	public void printaMensagemErro(String mensagem) {
+		System.err.println(mensagem);
+	}
+	
 }
