@@ -1,27 +1,26 @@
 package br.com.churras.component;
 
 import br.com.churras.util.LeitorDeDados;
+import br.com.churras.view.DeleteView;
 
 public class DeletarComponent {
 	public void deletar() {
 		LeitorDeDados scanner = new LeitorDeDados();
+		DeleteView view = new DeleteView();
 		
 		int continuarDeletar = 0;
 		int digitado;
 		do {
-			System.out.println("\n------------- Tela de Remover Convidados e Itens -------------\n");
-			System.out.println(" 1 - Remover tudo         - (ao remover tudo você estará deletando tanto convidados quanto refrigerantes e cervejas)");
-			System.out.println(" 2 - Limpar unitariamente - (escolhendo esta opcao voce poderá escolher oque remover separadamente)");
-			System.out.println(" 0 - Voltar");
+			view.telaRemoverConvidadosEItens();
 			digitado = scanner.pegarInteiroDigitado();
 			switch (digitado) {
 			case 1: {
-				System.out.println("Remover Convidados...");
+				view.printaMensagem("Remover Convidados...");
 				// TODO metodo para remover tudo (convidados e itens)
 				break;
 			}
 			case 2: {
-				System.out.println("Remover Unitariamente...");
+				view.printaMensagem("Remover Unitariamente...");
 				removerUnitario();
 				break;
 			}
@@ -30,7 +29,7 @@ public class DeletarComponent {
 				break;
 			}
 			default:
-				System.out.println("   Escolha uma opcao valida");
+				view.printaMensagem("   Escolha uma opcao valida");
 			}
 		} while(continuarDeletar == 0);
 		scanner.fechar();

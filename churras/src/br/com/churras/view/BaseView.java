@@ -1,8 +1,5 @@
 package br.com.churras.view;
 
-import java.math.BigDecimal;
-import java.util.Scanner;
-
 import br.com.churras.component.ChurrasComponent;
 import br.com.churras.model.BaseModel;
 import br.com.churras.service.ItensChurrasService;
@@ -17,6 +14,13 @@ import br.com.churras.util.LeitorDeDados;
  *
  */
 public class BaseView {
+
+	private final int OPCAO_SAIR = 0;
+	private final int OPCAO_CADASTRAR = 1;
+	private final int OPCAO_VISUALIZAR = 2;
+	private final int OPCAO_DELETAR = 3;
+	private final int OPCAO_FAZER_CALCULO_POR_PESSOA = 4;
+	private final int OPCAO_COMO_FUNCIONA_O_SISTEMA = 5;
 
 	public void inicializacaoSistema(BaseModel base) {
 		ItensChurrasService itemService = new ItensChurrasService();
@@ -47,9 +51,16 @@ public class BaseView {
 	 */
 	public void menuOpcoes() {
 		System.out.println("\n------------- Tela Inicial -------------");
-		System.out.println("\n  1 - Cadastrar \n  2 - Visualizar \n  3 - Deletar  \n  4 - Calcular Valor por Pessoa \n  5 - Como Usar o Sistema \n  0 - Sair");
+		System.out.println(
+				"\n  1 - Cadastrar \n  2 - Visualizar \n  3 - Deletar  \n  4 - Calcular Valor por Pessoa \n  5 - Como Usar o Sistema \n  0 - Sair");
 	}
 
+	/**
+	 * Onde será mostrado para o usuario todas as opcoes de nagegação do sistema
+	 * 
+	 * @author Miguel Arcanjo
+	 * @param base
+	 */
 	public void selecao(BaseModel base) {
 		LeitorDeDados scanner = new LeitorDeDados();
 		ChurrasComponent churrasComponent = new ChurrasComponent();
@@ -63,27 +74,27 @@ public class BaseView {
 			int escolhaUsuario = scanner.pegarInteiroDigitado();
 
 			switch (escolhaUsuario) {
-			case 1: {
+			case OPCAO_CADASTRAR: {
 				churrasComponent.cadastrar(base);
 				break;
 			}
-			case 2: {
+			case OPCAO_VISUALIZAR: {
 				churrasComponent.vizualizar(base);
 				break;
 			}
-			case 3: {
+			case OPCAO_DELETAR: {
 				churrasComponent.deletar(base);
 				break;
 			}
-			case 4: {
-				//TODO Fazer base de calculo
+			case OPCAO_FAZER_CALCULO_POR_PESSOA: {
+				// TODO Fazer base de calculo
 				break;
 			}
-			case 5: {
+			case OPCAO_COMO_FUNCIONA_O_SISTEMA: {
 				comoFuncionaSistema();
 				break;
 			}
-			case 0: {
+			case OPCAO_SAIR: {
 				System.out.println("\n\t Saindo do Programa...");
 				continuarLoop = 0;
 				break;
@@ -102,44 +113,59 @@ public class BaseView {
 	 */
 	public void comoFuncionaSistema() {
 		System.out.println("				  ------------- Como Funciona o Sistema -------------\n");
-		System.out.println("\t 1 - Entra no Menu de Cadastrar Convidados e Produtos ira aparecer subcategorias de 1 a 4");
+		System.out
+				.println("\t 1 - Entra no Menu de Cadastrar Convidados e Produtos ira aparecer subcategorias de 1 a 4");
 		System.out.println("\t\t = 1 - Para Cadastrar Convidados \n");
 		System.out.println("\t Para Cadastrar um Novo Convidado voce precisara Colocar o nome dele e aperta Enter");
 		System.out.println("\t\t = 2 - Para Cadastrar Carnes \n");
 		System.out.println("\t Para Cadastrar uma carne voce precisara Colocar o nome da carne e quantidade de 1Kg");
 		System.out.println("\t\t = 3 - Para Cadastrar Refrigerante \n");
-		System.out.println("\t Para Cadastrar um Novo Refrigerante Voce pode colocar a quantidade de Refrigerante ex 1 equivale a 1.5 litros");
+		System.out.println(
+				"\t Para Cadastrar um Novo Refrigerante Voce pode colocar a quantidade de Refrigerante ex 1 equivale a 1.5 litros");
 		System.out.println("\t\t = 4 - Para Cadastrar Cerveja \n");
-		System.out.println("\t Para Cadastrar Cerveja e nessesario colocar o nome e a quantidade de 1 equivale a 5 latas de cerveja cada lata tem 330ml \n");
+		System.out.println(
+				"\t Para Cadastrar Cerveja e nessesario colocar o nome e a quantidade de 1 equivale a 5 latas de cerveja cada lata tem 330ml \n");
 		System.out.println("\t 2 - Entra no Menu de Visualizar Convidados e Produtos cadastrados para o churasco \n");
-		System.out.println("\t 3 - Calcula o valor por pessoa ira mostra o valor que saira para cada pessoa o churrasco \n");
+		System.out.println(
+				"\t 3 - Calcula o valor por pessoa ira mostra o valor que saira para cada pessoa o churrasco \n");
 		// TODO Atualizar informações
 		// TODO informações sobre como remover
 		System.out.println("    1 - No Menu de Cadastrar ira aparecer subcategorias de 1 a 4");
 		System.out.println("    	1 - Cadastrar Convidados");
-		System.out.println("	        Para Cadastrar um Novo Convidado Você irá Precisar Colocar Somente o Nome Dele");
+		System.out
+				.println("	        Para Cadastrar um Novo Convidado Você irá Precisar Colocar Somente o Nome Dele");
 		System.out.println("        2 - Cadastrar Carnes");
-		System.out.println("			Para Cadastrar uma Carne Você irá Precisar Colocar o Nome da Carne e a Quantidade de 1Kg");
+		System.out.println(
+				"			Para Cadastrar uma Carne Você irá Precisar Colocar o Nome da Carne e a Quantidade de 1Kg");
 		System.out.println("        3 - Cadastrar Refrigerante");
-		System.out.println("			Para Cadastrar um Novo Refrigerante Você Irá Colocar a Quantidade de Refrigerante equivale a 1.5 litros");
+		System.out.println(
+				"			Para Cadastrar um Novo Refrigerante Você Irá Colocar a Quantidade de Refrigerante equivale a 1.5 litros");
 		System.out.println("        4 - Cadastrar Cerveja");
-		System.out.println("			Para Cadastrar Cerveja é Necessário Colocar o Nome e a Quantidade Equivalente a 1 Lata de Cerveja\n");
+		System.out.println(
+				"			Para Cadastrar Cerveja é Necessário Colocar o Nome e a Quantidade Equivalente a 1 Lata de Cerveja\n");
 		System.out.println("    2 - Visualizar");
-		System.out.println("		  Nesta Opção é Possível Visualizar os Convidados, Carnes, Refrigerantes e Cervejas Cadastrados Até o Momento no Sistema\n");
+		System.out.println(
+				"		  Nesta Opção é Possível Visualizar os Convidados, Carnes, Refrigerantes e Cervejas Cadastrados Até o Momento no Sistema\n");
 		System.out.println("    3 - Deletar");
 		System.out.println("		  Você Terá Duas Opções de Remoção:");
 		System.out.println("    	     1 - Remover Tudo Oque Está Registrado no Sistema Até o Momento");
-		System.out.println("         	 2 - Remover Unitariamente (Dentro Desta Opção Você Poderá Escolher oque Remover em Cada uma das Opções Abaixo)");
+		System.out.println(
+				"         	 2 - Remover Unitariamente (Dentro Desta Opção Você Poderá Escolher oque Remover em Cada uma das Opções Abaixo)");
 		System.out.println("    		     1 - Remover Convidados");
 		System.out.println(" 				 2 - Remover Refrigerantes");
 		System.out.println("    		     3 - Remover Cervejas\n");
 		System.out.println("    4 - Calcular Valor por Pessoa");
-		System.out.println("		O Sistema Irá Estipular um Valor por igual para o Churras de Acordo com a quantidade de Convidados registrados no sistema");
+		System.out.println(
+				"		O Sistema Irá Estipular um Valor por igual para o Churras de Acordo com a quantidade de Convidados registrados no sistema");
 		System.out.println("	      A Regra é a Seguinte:");
-		System.out.println("		    O Sistema irá pegar todas as carnes registradas e fazer um calculo para que cada carne tenha a mesma proporção em Kg");
-		System.out.println("    		O Sistema irá pegar todos os refrigerantes registrados e fazer um calculo para que cada refrigerante tenha a mesma proporção");
-		System.out.println("    		O Sistema irá pegar todas as cervejas registradas e fazer um calculo para que cada refrigerante tenha a mesma proporção em latas");
-		System.out.println("    		E depois irá somar cada item (carne, refrigerante e cerveja) - assim será gerado o valor que cada um terá que pagar no Churras");
+		System.out.println(
+				"		    O Sistema irá pegar todas as carnes registradas e fazer um calculo para que cada carne tenha a mesma proporção em Kg");
+		System.out.println(
+				"    		O Sistema irá pegar todos os refrigerantes registrados e fazer um calculo para que cada refrigerante tenha a mesma proporção");
+		System.out.println(
+				"    		O Sistema irá pegar todas as cervejas registradas e fazer um calculo para que cada refrigerante tenha a mesma proporção em latas");
+		System.out.println(
+				"    		E depois irá somar cada item (carne, refrigerante e cerveja) - assim será gerado o valor que cada um terá que pagar no Churras");
 	}
 
 }
