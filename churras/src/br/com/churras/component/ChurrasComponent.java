@@ -6,6 +6,7 @@ import br.com.churras.model.BaseModel;
 import br.com.churras.model.Item;
 import br.com.churras.util.LeitorDeDados;
 import br.com.churras.view.CadastroView;
+import br.com.churras.view.DeleteView;
 
 public class ChurrasComponent {
 	
@@ -114,13 +115,43 @@ public class ChurrasComponent {
 		} while (continuarVisualizacao == 0);
 	}
 	
+	/**
+	 * este método apresentará ao usuario duas opcoes:
+	 * 
+	 * 1 - remover tudo (convidados e itens)
+	 * 2 - remover unitariamente (somente convidado, somente refrigerante...)
+	 * 
+	 * @author Miguel Arcanjo
+	 */
 	public void deletar(BaseModel base) {
-//		DeletarComponent deletarCompenent = new DeletarComponent();
-		// TODO metodo deletar compenent
+		LeitorDeDados scanner = new LeitorDeDados();
+		DeleteView view = new DeleteView();
+		int continuarDeletar = 0;
+		int digitado;
+		do {
+			view.telaRemoverConvidadosEItens();
+			digitado = scanner.pegarInteiroDigitado();
+			switch (digitado) {
+			case 1: {
+				view.printaMensagem("Remover Convidados...");
+				// TODO metodo para remover tudo (convidados e itens)
+				break;
+			}
+			case 2: {
+				view.printaMensagem("Remover Unitariamente...");
+				break;
+			}
+			case 0: {
+				continuarDeletar = 1;
+				break;
+			}
+			default:
+				view.printaMensagem("   Escolha uma opcao valida");
+			}
+		} while(continuarDeletar == 0);
+		scanner.fechar();
 	}
-	
-	
-	
+		
 	/*
 	public BigDecimal valorCalculoPessoa(ItensChurrasService item) {
 		System.out.println("\n------------- Calcular Valor por Pessoa -------------\n");

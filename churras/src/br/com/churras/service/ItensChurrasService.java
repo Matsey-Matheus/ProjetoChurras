@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import br.com.churras.model.Item;
+import br.com.churras.view.BaseView;
 
 /**
  * 
@@ -70,7 +71,7 @@ public class ItensChurrasService {
 		if (linha < mapa.get(tipo).size()) {
 			mapa.get(tipo).remove(linha);
 		} else {
-			System.out.println("\n Nome do item não existente \n");
+			BaseView.printaMensagemStatica("\n Nome do item não existente \n", 3);
 		}
 	}
 }

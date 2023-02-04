@@ -68,7 +68,7 @@ public class BaseView extends MensagemView {
 		do {
 			menuOpcoes();
 
-			System.out.println("\n Selecione: ");
+			System.out.print("\n Selecione: ");
 			int escolhaUsuario = scanner.pegarInteiroDigitado();
 
 			switch (escolhaUsuario) {
