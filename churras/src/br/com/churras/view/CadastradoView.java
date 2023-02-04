@@ -6,7 +6,7 @@ import java.util.Map;
 import br.com.churras.model.Convidado;
 import br.com.churras.model.Item;
 
-public class CadastradoView {
+public class CadastradoView extends MensagemBaseView {
 
 	public void convidadosCadastrados(Convidado convidados) {
 	//	montarTopo();
@@ -43,12 +43,12 @@ public class CadastradoView {
 		}
 	}
 
-	/*
-	private void montarTopo() {
-		for (int i = 0; i < 14; i++) {
-			System.out.print(" ___");
-		}
+	public void inicioCadastroView() {
+		System.out.println("\n------------- Tela de Cadastros -------------\n");
+		System.out.println("              Você deseja cadastrar: \n");
+		System.out.println("    1 - Convidados \n    2 - Carnes \n    3 - Refrigerante \n    4 - Cervejas \n    0 - Voltar");
+		
+		System.out.print("\n Selecione: ");
 	}
-	*/
 
 }

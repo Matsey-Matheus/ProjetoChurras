@@ -11,23 +11,20 @@ public class ChurrasComponent {
 	
 	public void cadastrar(BaseModel base) {
 		CadastroComponent cadastro = new CadastroComponent();
+		CadastradoView view = new CadastradoView();
 		
 		LeitorDeDados sc = new LeitorDeDados();
 		LeitorDeDados sc2 = new LeitorDeDados();
 		
 		int continuarCadastro = 0;
 		do {
-			System.out.println("\n------------- Tela de Cadastros -------------\n");
-			System.out.println("              Você deseja cadastrar: \n");
-			System.out.println("    1 - Convidados \n    2 - Carnes \n    3 - Refrigerante \n    4 - Cervejas \n    0 - Voltar");
-			
-			System.out.print("\n Selecione: ");
+			view.inicioCadastroView();
 			int escolhaUsuario = sc.pegarInteiroDigitado();
-			
+	
 			switch (escolhaUsuario) {
 			
 			case 1: {
-				System.out.print("\n Digite o nome do convidado que deseja adicionar: ");
+				view.printaMensagem("\n Digite o nome do convidado que deseja adicionar: ");
 				String nome = sc2.pegarTextoCompletoDigitado();
 				
 				cadastro.cadastrarConvidado(base.getConvidado(), nome);
