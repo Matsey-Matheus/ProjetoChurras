@@ -112,34 +112,35 @@ public class BaseView extends MensagemView {
 	 * @author Bruno Polido
 	 */
 	public void comoFuncionaSistema() {
-		System.out.println("				  ------------- Como Funciona o Sistema -------------\n");
+		informacao();
+		System.out.println("------------- Como Funciona o Sistema -------------\n");
 		// TODO Atualizar informações
 		// TODO informações sobre como remover
-		System.out.println("    1 - No Menu de Cadastrar ira aparecer subcategorias de 1 a 4");
-		System.out.println("    	1 - Cadastrar Convidados");
-		System.out.println("	        Para Cadastrar um Novo Convidado Você irá Precisar Colocar Somente o Nome Dele");
-		System.out.println("        2 - Cadastrar Carnes");
-		System.out.println("			Para Cadastrar uma Carne Você irá Precisar Colocar o Nome da Carne e a Quantidade de 1Kg");
-		System.out.println("        3 - Cadastrar Refrigerante");
-		System.out.println("			Para Cadastrar um Novo Refrigerante Você Irá Colocar a Quantidade de Refrigerante equivale a 1.5 litros");
-		System.out.println("        4 - Cadastrar Cerveja");
-		System.out.println("			Para Cadastrar Cerveja é Necessário Colocar o Nome e a Quantidade Equivalente a 1 Lata de Cerveja\n");
-		System.out.println("    2 - Visualizar");
-		System.out.println("		  Nesta Opção é Possível Visualizar os Convidados, Carnes, Refrigerantes e Cervejas Cadastrados Até o Momento no Sistema\n");
-		System.out.println("    3 - Deletar");
-		System.out.println("		  Você Terá Duas Opções de Remoção:");
-		System.out.println("    	     1 - Remover Tudo Oque Está Registrado no Sistema Até o Momento");
-		System.out.println("         	 2 - Remover Unitariamente (Dentro Desta Opção Você Poderá Escolher oque Remover em Cada uma das Opções Abaixo)");
-		System.out.println("    		     1 - Remover Convidados");
-		System.out.println(" 				 2 - Remover Refrigerantes");
-		System.out.println("    		     3 - Remover Cervejas\n");
-		System.out.println("    4 - Calcular Valor por Pessoa");
-		System.out.println("		O Sistema Irá Estipular um Valor por igual para o Churras de Acordo com a quantidade de Convidados registrados no sistema");
-		System.out.println("	      A Regra é a Seguinte:");
-		System.out.println("		    O Sistema irá pegar todas as carnes registradas e fazer um calculo para que cada carne tenha a mesma proporção em Kg");
-		System.out.println("    		O Sistema irá pegar todos os refrigerantes registrados e fazer um calculo para que cada refrigerante tenha a mesma proporção");
-		System.out.println("    		O Sistema irá pegar todas as cervejas registradas e fazer um calculo para que cada refrigerante tenha a mesma proporção em latas");
-		System.out.println("    		E depois irá somar cada item (carne, refrigerante e cerveja) - assim será gerado o valor que cada um terá que pagar no Churras");
+		System.out.println("	1 - No Menu de Cadastrar ira aparecer subcategorias de 1 a 4");
+		System.out.println("		∟ 1 - Cadastrar Convidados");
+		System.out.println("			∟ Para Cadastrar um Novo Convidado Você irá Precisar Colocar Somente o Nome Dele");
+		System.out.println("		∟ 2 - Cadastrar Carnes");
+		System.out.println("			∟ Para Cadastrar uma Carne Você irá Precisar Colocar o Nome da Carne e a Quantidade de 1Kg");
+		System.out.println("		∟ 3 - Cadastrar Refrigerante");
+		System.out.println("			∟ Para Cadastrar um Novo Refrigerante Você Irá Colocar a Quantidade de Refrigerante equivale a 1.5 litros");
+		System.out.println("		∟ 4 - Cadastrar Cerveja");
+		System.out.println("			∟ Para Cadastrar Cerveja é Necessário Colocar o Nome e a Quantidade Equivalente a 1 Lata de Cerveja\n");
+		System.out.println("	2 - Visualizar");
+		System.out.println("		∟ Nesta Opção é Possível Visualizar os Convidados, Carnes, Refrigerantes e Cervejas Cadastrados Até o Momento no Sistema\n");
+		System.out.println("	3 - Deletar");
+		System.out.println("		∟ Você Terá Duas Opções de Remoção:");
+		System.out.println("			∟ 1 - Remover Tudo Oque Está Registrado no Sistema Até o Momento");
+		System.out.println("			∟ 2 - Remover Unitariamente (Dentro Desta Opção Você Poderá Escolher oque Remover em Cada uma das Opções Abaixo)");
+		System.out.println("				∟ 1 - Remover Convidados");
+		System.out.println("				∟ 2 - Remover Refrigerantes");
+		System.out.println("				∟ 3 - Remover Cervejas\n");
+		System.out.println("	4 - Calcular Valor por Pessoa");
+		System.out.println("		∟ O Sistema Irá Estipular um Valor por igual para o Churras de Acordo com a quantidade de Convidados registrados no sistema");
+		System.out.println("			∟ A Regra é a Seguinte:");
+		System.out.println("				∟ O Sistema irá pegar todas as carnes registradas e fazer um calculo para que cada carne tenha a mesma proporção em Kg");
+		System.out.println("				∟ O Sistema irá pegar todos os refrigerantes registrados e fazer um calculo para que cada refrigerante tenha a mesma proporção");
+		System.out.println("				∟ O Sistema irá pegar todas as cervejas registradas e fazer um calculo para que cada refrigerante tenha a mesma proporção em latas");
+		System.out.println("				∟ E depois irá somar cada item (carne, refrigerante e cerveja) - assim será gerado o valor que cada um terá que pagar no Churras");
 	}
 
 }
