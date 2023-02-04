@@ -113,22 +113,7 @@ public class BaseView extends MensagemView {
 	 */
 	public void comoFuncionaSistema() {
 		System.out.println("				  ------------- Como Funciona o Sistema -------------\n");
-		System.out
-				.println("\t 1 - Entra no Menu de Cadastrar Convidados e Produtos ira aparecer subcategorias de 1 a 4");
-		System.out.println("\t\t = 1 - Para Cadastrar Convidados \n");
-		System.out.println("\t Para Cadastrar um Novo Convidado voce precisara Colocar o nome dele e aperta Enter");
-		System.out.println("\t\t = 2 - Para Cadastrar Carnes \n");
-		System.out.println("\t Para Cadastrar uma carne voce precisara Colocar o nome da carne e quantidade de 1Kg");
-		System.out.println("\t\t = 3 - Para Cadastrar Refrigerante \n");
-		System.out.println(
-				"\t Para Cadastrar um Novo Refrigerante Voce pode colocar a quantidade de Refrigerante ex 1 equivale a 1.5 litros");
-		System.out.println("\t\t = 4 - Para Cadastrar Cerveja \n");
-		System.out.println(
-				"\t Para Cadastrar Cerveja e nessesario colocar o nome e a quantidade de 1 equivale a 5 latas de cerveja cada lata tem 330ml \n");
-		System.out.println("\t 2 - Entra no Menu de Visualizar Convidados e Produtos cadastrados para o churasco \n");
-		System.out.println(
-				"\t 3 - Calcula o valor por pessoa ira mostra o valor que saira para cada pessoa o churrasco \n");
-		// TODO Atualizar informações
+			// TODO Atualizar informações
 		// TODO informações sobre como remover
 		System.out.println("    1 - No Menu de Cadastrar ira aparecer subcategorias de 1 a 4");
 		System.out.println("    	1 - Cadastrar Convidados");
