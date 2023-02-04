@@ -22,7 +22,7 @@ public class ChurrasComponent {
 			switch (escolhaUsuario) {
 			
 			case 1: {
-				view.printaMensagem("\n Digite o nome do convidado que deseja adicionar: ");
+				view.printaMensagemSemPularLinha("\n Digite o nome do convidado que deseja adicionar: ");
 				String nome = sc.pegarTextoCompletoDigitado();
 				
 				cadastro.cadastrarConvidado(base.getConvidado(), nome);
@@ -32,9 +32,9 @@ public class ChurrasComponent {
 				view.printaMensagem("\n Cadastro de carnes...\n");
 				List<Item> carnes = base.getMapaItens().get("carne");
 				
-				view.printaMensagem(" Nome: ");
+				view.printaMensagemSemPularLinha(" Nome: ");
 				String nome = sc.pegarTextoCompletoDigitado();
-				view.printaMensagem(" Valor: ");
+				view.printaMensagemSemPularLinha(" Valor: ");
 				Double valor = sc.pegarNumeroFracionadoDigitado();
 			
 				cadastro.cadastrarItem(carnes, nome, valor);
@@ -44,9 +44,9 @@ public class ChurrasComponent {
 				view.printaMensagem("\n Cadastro de refrigerante...\n");
 				List<Item> refrigerante = base.getMapaItens().get("refrigerante");
 				
-				view.printaMensagem(" Nome: ");
+				view.printaMensagemSemPularLinha(" Nome: ");
 				String nome = sc.pegarTextoCompletoDigitado();
-				view.printaMensagem(" Valor: ");
+				view.printaMensagemSemPularLinha(" Valor: ");
 				Double valor = sc.pegarNumeroFracionadoDigitado();
 			
 				cadastro.cadastrarItem(refrigerante, nome, valor);
@@ -89,27 +89,27 @@ public class ChurrasComponent {
 					view.printaMensagem("\n Visualizar Convidados... \n");
 					cadastrado.convidadosCadastrados(base.getConvidado());
 				} else {
-					System.err.println("\n\tNenhum convidado cadastrado");
+					view.printaMensagemErro("\n\tNenhum convidado cadastrado");
 				}
 				break;
 			}
 			case 2: {
 				if(!base.getMapaItens().isEmpty()) {
-					System.out.println("\n Visualizar Itens... \n");
+					view.printaMensagem("\n Visualizar Itens... \n");
 					
 					cadastrado.itensCadastrados(base.getMapaItens());
 				} else {
-					System.err.println("\n\tNenhum item cadastrado");
+					view.printaMensagem("\n\tNenhum item cadastrado");
 				}
 				break;
 			}
 			case 0: {
-				System.out.println("\n   Voltando para a tela inicial...");
+				view.printaMensagem("\n   Voltando para a tela inicial...");
 				continuarVisualizacao = 1;
 				break;
 			}
 			default:
-				System.err.println("\n   Escolha uma opcao valida");
+				view.printaMensagemErro("\n   Escolha uma opcao valida");
 			}
 		} while (continuarVisualizacao == 0);
 	}
