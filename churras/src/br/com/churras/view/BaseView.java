@@ -13,7 +13,7 @@ import br.com.churras.util.LeitorDeDados;
  * @author Bruno Polido
  *
  */
-public class BaseView {
+public class BaseView extends MensagemView {
 
 	private final int OPCAO_SAIR = 0;
 	private final int OPCAO_CADASTRAR = 1;

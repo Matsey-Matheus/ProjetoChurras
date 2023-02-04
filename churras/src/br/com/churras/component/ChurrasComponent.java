@@ -5,16 +5,14 @@ import java.util.List;
 import br.com.churras.model.BaseModel;
 import br.com.churras.model.Item;
 import br.com.churras.util.LeitorDeDados;
-import br.com.churras.view.CadastradoView;
+import br.com.churras.view.CadastroView;
 
 public class ChurrasComponent {
 	
 	public void cadastrar(BaseModel base) {
 		CadastroComponent cadastro = new CadastroComponent();
-		CadastradoView view = new CadastradoView();
-		
+		CadastroView view = new CadastroView();
 		LeitorDeDados sc = new LeitorDeDados();
-		LeitorDeDados sc2 = new LeitorDeDados();
 		
 		int continuarCadastro = 0;
 		do {
@@ -25,7 +23,7 @@ public class ChurrasComponent {
 			
 			case 1: {
 				view.printaMensagem("\n Digite o nome do convidado que deseja adicionar: ");
-				String nome = sc2.pegarTextoCompletoDigitado();
+				String nome = sc.pegarTextoCompletoDigitado();
 				
 				cadastro.cadastrarConvidado(base.getConvidado(), nome);
 				break;
@@ -35,7 +33,7 @@ public class ChurrasComponent {
 				List<Item> carnes = base.getMapaItens().get("carne");
 				
 				view.printaMensagem(" Nome: ");
-				String nome = sc2.pegarTextoCompletoDigitado();
+				String nome = sc.pegarTextoCompletoDigitado();
 				view.printaMensagem(" Valor: ");
 				Double valor = sc.pegarNumeroFracionadoDigitado();
 			
@@ -47,7 +45,7 @@ public class ChurrasComponent {
 				List<Item> refrigerante = base.getMapaItens().get("refrigerante");
 				
 				view.printaMensagem(" Nome: ");
-				String nome = sc2.pegarTextoCompletoDigitado();
+				String nome = sc.pegarTextoCompletoDigitado();
 				view.printaMensagem(" Valor: ");
 				Double valor = sc.pegarNumeroFracionadoDigitado();
 			
@@ -71,23 +69,24 @@ public class ChurrasComponent {
 	}
 	
 	public void vizualizar(BaseModel base) {
-		CadastradoView cadastrado = new CadastradoView();
+		CadastroView cadastrado = new CadastroView();
 		LeitorDeDados scanner = new LeitorDeDados();
+		CadastroView view = new CadastroView();
 		
 		int continuarVisualizacao = 0;
 		
 		do {
-			System.out.println("\n------------- Tela de Visualização-------------\n");
-			System.out.println("              Você deseja visualizar: \n");
-			System.out.println("    1 - Convidados \n    2 - Itens  \n    0 - Voltar");
+			view.printaMensagem("\n------------- Tela de Visualização-------------\n");
+			view.printaMensagem("              Você deseja visualizar: \n");
+			view.printaMensagem("    1 - Convidados \n    2 - Itens  \n    0 - Voltar");
 			
-			System.out.print("\n Selecione: ");
+			view.printaMensagemSemPularLinha("\n Selecione: ");
 			int escolhaUsuario = scanner.pegarInteiroDigitado();
 			
 			switch (escolhaUsuario) {
 			case 1: {
 				if(!base.getConvidado().getNome().isEmpty()) {
-					System.out.println("\n Visualizar Convidados... \n");
+					view.printaMensagem("\n Visualizar Convidados... \n");
 					cadastrado.convidadosCadastrados(base.getConvidado());
 				} else {
 					System.err.println("\n\tNenhum convidado cadastrado");

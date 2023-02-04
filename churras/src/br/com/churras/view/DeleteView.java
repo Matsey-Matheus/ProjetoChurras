@@ -3,7 +3,7 @@ package br.com.churras.view;
 /**
  * @author Miguel Arcanjo
  */
-public class DeleteView extends MensagemBaseView {
+public class DeleteView extends MensagemView {
 	/**
 	 * mostra ao usuario o menu de opcoes sobre remoção de convidados e itens
 	 * 

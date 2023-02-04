@@ -6,7 +6,7 @@ import java.util.Map;
 import br.com.churras.model.Convidado;
 import br.com.churras.model.Item;
 
-public class CadastradoView extends MensagemBaseView {
+public class CadastroView extends MensagemView {
 
 	public void convidadosCadastrados(Convidado convidados) {
 	//	montarTopo();
