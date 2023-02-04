@@ -3,7 +3,17 @@ package br.com.churras.component;
 import br.com.churras.util.LeitorDeDados;
 import br.com.churras.view.DeleteView;
 
+/**
+ * @author Miguel Arcanjo
+ */
 public class DeletarComponent {
+	/**
+	 * este método apresentará ao usuario duas opcoes:
+	 * 1 - remover tudo (convidados e itens)
+	 * 2 - remover unitariamente (somente convidado, somente refrigerante...)
+	 * 
+	 * @author Miguel Arcanjo
+	 */
 	public void deletar() {
 		LeitorDeDados scanner = new LeitorDeDados();
 		DeleteView view = new DeleteView();
@@ -36,6 +46,10 @@ public class DeletarComponent {
 	}
 	
 	public void removerUnitario() {
-		// TODO metodo para remover unitariamente ( convidados/refrrigerante/cerveja )
+		// TODO metodo para remover unitariamente (convidados/refrrigerante/cerveja)
+	}
+	
+	public void removerConvidadosEItens() {
+		// TODO metodo para remover tudo (convidado e item)
 	}
 }

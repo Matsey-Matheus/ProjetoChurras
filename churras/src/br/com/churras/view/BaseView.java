@@ -40,19 +40,17 @@ public class BaseView extends MensagemView {
 		System.out.println("Com base nesses dados fizemos um sistema para calcular o valor total do churrasco");
 		System.out.println("e valor que cada pessoa vai precisar pagar");
 		System.out.println("Tendo em Base que o valor dos itens para o churasco e de de");
-		System.out.println("--------------- =============================== ---------------");
-		System.out.println("");
-
+		System.out.println("--------------- =============================== ---------------\n");
 	}
 
 	/**
+	 * apresentará as opcoes iniciais do sistema para o usuario
 	 * 
 	 * @author Miguel Arcanjo
 	 */
 	public void menuOpcoes() {
 		System.out.println("\n------------- Tela Inicial -------------");
-		System.out.println(
-				"\n  1 - Cadastrar \n  2 - Visualizar \n  3 - Deletar  \n  4 - Calcular Valor por Pessoa \n  5 - Como Usar o Sistema \n  0 - Sair");
+		System.out.println("\n  1 - Cadastrar \n  2 - Visualizar \n  3 - Deletar  \n  4 - Calcular Valor por Pessoa \n  5 - Como Usar o Sistema \n  0 - Sair");
 	}
 
 	/**
@@ -70,7 +68,7 @@ public class BaseView extends MensagemView {
 		do {
 			menuOpcoes();
 
-			System.out.print("\n Selecione: ");
+			System.out.println("\n Selecione: ");
 			int escolhaUsuario = scanner.pegarInteiroDigitado();
 
 			switch (escolhaUsuario) {
