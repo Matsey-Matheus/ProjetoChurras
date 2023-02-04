@@ -8,7 +8,11 @@ import java.math.BigDecimal;
  * 
  */
 public class CalculadorService {
-
+/**
+ * 
+ * @param valor
+ * @return Em desenvolvimentos
+ */
 	public BigDecimal calcularPorPessoa(BigDecimal valor) {
 		BigDecimal porcentagem = BigDecimal.valueOf(55).divide(BigDecimal.valueOf(100));
 		return valor.subtract(porcentagem.multiply(valor));
