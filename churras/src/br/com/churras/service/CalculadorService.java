@@ -7,7 +7,7 @@ import java.math.BigDecimal;
  * @author Matheus Martins Santos
  * 
  */
-public class CalculadorService {
+public class CalculadorService {	
 /**
  * Calcula com base nos convidados e nos itens cadastrados a quantidade que cada convidado irá contribuir para o Churras
  * 
@@ -32,6 +32,5 @@ public class CalculadorService {
 		BigDecimal valorLataConvertido = BigDecimal.valueOf(valorLata);
 		return valorLataConvertido.multiply(BigDecimal.valueOf(5));
 	}
-	
 	
 }

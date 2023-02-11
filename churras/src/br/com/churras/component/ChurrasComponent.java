@@ -11,13 +11,20 @@ import br.com.churras.view.CadastroView;
 import br.com.churras.view.DeleteView;
 
 public class ChurrasComponent {
+	
+	private final int OPCAO_SAIR = 0;
+	private final int CADASTRAR_CONVIDADO = 1;
+	private final int CADASTRAR_CARNE = 2;
+	private final int CADASTRAR_REFRIGERANTE = 3;
+	private final int CADASTRAR_CERVEJA = 4;
+	
 	/**
-	 * O usuário poderá escolher quatro opcoes de cadastro:
+	 * O usuário poderá escolher quatro opcoes de cadastro:<br>
 	 * 
-	 * 1 - cadastrar convidado
-	 * 2 - cadastrar carne
-	 * 3 - cadastrar refrigerante
-	 * 4 - cadastrar cerveja
+	 * 1 - cadastrar convidado<br>
+	 * 2 - cadastrar carne<br>
+	 * 3 - cadastrar refrigerante<br>
+	 * 4 - cadastrar cerveja<br>
 	 * 
 	 * @param base
 	 */
@@ -33,14 +40,14 @@ public class ChurrasComponent {
 
 			switch (escolhaUsuario) {
 
-			case 1: {
+			case CADASTRAR_CONVIDADO: {
 				view.printaMensagemSemPularLinha("\n Digite o nome do convidado que deseja adicionar: ");
 				String nome = sc.pegarTextoCompletoDigitado();
 
 				cadastro.cadastrarConvidado(base.getConvidado(), nome);
 				break;
 			}
-			case 2: {
+			case CADASTRAR_CARNE: {
 				view.printaMensagem("\n Cadastro de carnes...\n");
 				List<Item> carnes = base.getMapaItens().get("carne");
 
@@ -52,7 +59,7 @@ public class ChurrasComponent {
 				cadastro.cadastrarItem(carnes, nome, CalculadorService.calculaCarne(valor));
 				break;
 			}
-			case 3: {
+			case CADASTRAR_REFRIGERANTE: {
 				view.printaMensagem("\n Cadastro de refrigerante...\n");
 				List<Item> refrigerante = base.getMapaItens().get("refrigerante");
 
@@ -64,7 +71,7 @@ public class ChurrasComponent {
 				cadastro.cadastrarItem(refrigerante, nome, BigDecimal.valueOf(valor));
 				break;
 			}
-			case 4: {
+			case CADASTRAR_CERVEJA: {
 				view.printaMensagem("Cadastrar Cervejas...");
 				List<Item> cerveja = base.getMapaItens().get("cerveja");
 
@@ -76,7 +83,7 @@ public class ChurrasComponent {
 				cadastro.cadastrarItem(cerveja, nome, CalculadorService.calculaCerveja(valor));
 				break;
 			}
-			case 0: {
+			case OPCAO_SAIR: {
 				view.printaMensagem("\n   Voltando para a tela inicial...");
 				continuarCadastro = 1;
 				break;
