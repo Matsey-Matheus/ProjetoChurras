@@ -6,14 +6,31 @@ public abstract class MensagemView {
 	private final static int PULA_LINHA = 2;
 	private final static int MENSAGEM_ERRO = 3;
 
+	/**
+	 * printa a mensagem que estiver dentro do parametro sem pular a linha (print)
+	 * 
+	 * @param mensagem
+	 */
 	public void printaMensagemSemPularLinha(String mensagem) {
 		System.out.print(mensagem);
 	}
 
+	/**
+	 * printa a mensagem que estiver dentro do parametro, depois pula a linha
+	 * (println)
+	 * 
+	 * @param mensagem
+	 */
 	public void printaMensagem(String mensagem) {
 		System.out.println(mensagem);
 	}
 
+	/**
+	 * printa a mensagem que estiver dentro do parametro como erro, (err, destaca a
+	 * mensagem em vermelho)
+	 * 
+	 * @param mensagem
+	 */
 	public void printaMensagemErro(String mensagem) {
 		System.err.println(mensagem);
 	}

@@ -10,6 +10,16 @@ import br.com.churras.view.DeleteView;
 
 public class ChurrasComponent {
 	
+	/**
+	 * O usuário poderá escolher quatro opcoes de cadastro:
+	 * 
+	 * 1 - cadastrar convidado
+	 * 2 - cadastrar carne
+	 * 3 - cadastrar refrigerante
+	 * 4 - cadastrar cerveja
+	 * 
+	 * @param base
+	 */
 	public void cadastrar(BaseModel base) {
 		CadastroComponent cadastro = new CadastroComponent();
 		CadastroView view = new CadastroView();
@@ -69,6 +79,14 @@ public class ChurrasComponent {
 		} while (continuarCadastro == 0);
 	}
 	
+	/**
+	 * O usuário poderá escolher duas opcoes:
+	 * 
+	 * 1 - visualizar convidados
+	 * 2 - visualizar itens (carnes, refrigerantes e cervejas)
+	 * 
+	 * @param base
+	 */
 	public void vizualizar(BaseModel base) {
 		CadastroView cadastrado = new CadastroView();
 		LeitorDeDados scanner = new LeitorDeDados();
