@@ -9,6 +9,7 @@ import java.math.BigDecimal;
  */
 public class CalculadorService {
 /**
+ * Calcula com base nos convidados e nos itens cadastrados a quantidade que cada convidado irá contribuir para o Churras
  * 
  * @param valor
  * @return Em desenvolvimentos

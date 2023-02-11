@@ -8,6 +8,11 @@ import br.com.churras.model.Item;
 
 public class CadastroView extends MensagemView {
 
+	/**
+	 * exibe no console todos os convidados cadastrados
+	 * 
+	 * @param convidados
+	 */
 	public void convidadosCadastrados(Convidado convidados) {
 	//	montarTopo();
 		System.out.println("");
@@ -25,6 +30,10 @@ public class CadastroView extends MensagemView {
 		System.out.println("");
 	}
 
+	/**
+	 * exibe no console todos os itens cadastrados no sistema (carnes, refrigerante e cervejas)
+	 * @param item
+	 */
 	public void itensCadastrados(Map<String, List<Item>> item) {
 		System.out.println("------------- Itens cadastrados ------------- \n");
 		if (!item.isEmpty()) {
@@ -43,6 +52,9 @@ public class CadastroView extends MensagemView {
 		}
 	}
 
+	/**
+	 * Mostra no console o menu da tela de cadastro
+	 */
 	public void inicioCadastroView() {
 		System.out.println("\n------------- Tela de Cadastros -------------\n");
 		System.out.println("              Você deseja cadastrar: \n");
