@@ -53,7 +53,7 @@ public class BaseView extends MensagemView {
 	 */
 	public void menuOpcoes() {
 		printaMensagem("\n------------- Tela Inicial -------------");
-		printaMensagem("\n  1 - Cadastrar \n  2 - Visualizar \n  3 - Deletar  \n  4 - Calcular Valor por Pessoa \n  5 - Como Usar o Sistema \n  0 - Sair");
+		printaMensagem("\n  1 - Cadastrar \n  2 - Visualizar \n  3 - Deletar  \n  4 - Calcular Total \n  5 - Como Usar o Sistema \n  0 - Sair");
 	}
 
 	/**
@@ -88,7 +88,6 @@ public class BaseView extends MensagemView {
 				break;
 			}
 			case OPCAO_FAZER_CALCULO_POR_PESSOA: {
-				printaMensagem("\nEm Desenvolvimento");
 				CalculadorService.somarTotal(base);
 				break;
 			}
