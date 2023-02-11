@@ -13,9 +13,24 @@ public class CalculadorService {
  * @param valor
  * @return Em desenvolvimentos
  */
-	public BigDecimal calcularPorPessoa(BigDecimal valor) {
+	
+	/**
+	 * 
+	 * Calcula 450g do valor do kil
+	 * 
+	 * @param valorKilo
+	 * @return Valor de 450g do kilo da carne digitada
+	 */
+	public static BigDecimal calculaCarne(double valorKilo) {
+		BigDecimal valorKiloConvertido = BigDecimal.valueOf(valorKilo);
 		BigDecimal porcentagem = BigDecimal.valueOf(55).divide(BigDecimal.valueOf(100));
-		return valor.subtract(porcentagem.multiply(valor));
+		return valorKiloConvertido.subtract(porcentagem.multiply(valorKiloConvertido));
 	}
+	
+	public static BigDecimal calculaCerveja(double valorLata) {
+		BigDecimal valorLataConvertido = BigDecimal.valueOf(valorLata);
+		return valorLataConvertido.multiply(BigDecimal.valueOf(5));
+	}
+	
 	
 }

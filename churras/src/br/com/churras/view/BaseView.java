@@ -1,7 +1,10 @@
 package br.com.churras.view;
 
+import java.math.BigDecimal;
+
 import br.com.churras.component.ChurrasComponent;
 import br.com.churras.model.BaseModel;
+import br.com.churras.service.CalculadorService;
 import br.com.churras.service.ItensChurrasService;
 import br.com.churras.util.LeitorDeDados;
 
@@ -86,7 +89,6 @@ public class BaseView extends MensagemView {
 			}
 			case OPCAO_FAZER_CALCULO_POR_PESSOA: {
 				System.out.println("\nEm Desenvolvimento");
-				// TODO Fazer base de calculo
 				break;
 			}
 			case OPCAO_COMO_FUNCIONA_O_SISTEMA: {

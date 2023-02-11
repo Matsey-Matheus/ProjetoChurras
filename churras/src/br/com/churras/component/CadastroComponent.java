@@ -12,8 +12,8 @@ public class CadastroComponent {
 		convidado.addConvidado(nome);
 	}
 	
-	public void cadastrarItem(List<Item> item, String nome, Double valor) {
-		item.add(new Item(nome, BigDecimal.valueOf(valor)));
+	public void cadastrarItem(List<Item> item, String nome, BigDecimal valor) {
+		item.add(new Item(nome, valor));
 	}
 	
 }
