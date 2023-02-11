@@ -2,12 +2,10 @@ package br.com.churras.service;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
 import br.com.churras.model.BaseModel;
-import br.com.churras.model.Convidado;
 import br.com.churras.model.Item;
 import br.com.churras.view.SomaView;
 

@@ -1,7 +1,5 @@
 package br.com.churras.view;
 
-import java.math.BigDecimal;
-
 import br.com.churras.component.ChurrasComponent;
 import br.com.churras.model.BaseModel;
 import br.com.churras.service.CalculadorService;

@@ -161,7 +161,9 @@ public class ChurrasComponent {
 	 */
 	public void deletar(BaseModel base) {
 		LeitorDeDados scanner = new LeitorDeDados();
+		DeletarComponent deletar = new DeletarComponent();
 		DeleteView view = new DeleteView();
+		
 		int continuarDeletar = 0;
 		int digitado;
 		do {
@@ -175,6 +177,12 @@ public class ChurrasComponent {
 			}
 			case UNITARIAMENTE: {
 				view.printaMensagem("Remover Unitariamente...");
+				view.printaMensagemSemPularLinha(" Tipo no singular: ");
+				String tipo = scanner.pegarTextoCompletoDigitado();
+				view.printaMensagemSemPularLinha(" Nome: ");
+				String nome = scanner.pegarTextoCompletoDigitado();
+				
+				deletar.removerItemUnitario(base.getMapaItens(), tipo.toLowerCase(), nome);
 				break;
 			}
 			case OPCAO_SAIR: {

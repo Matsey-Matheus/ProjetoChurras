@@ -15,7 +15,6 @@ import br.com.churras.view.BaseView;
  */
 public class ItensChurrasService {
 	
-	
 	/**
 	 * 
 	 * 
@@ -40,38 +39,4 @@ public class ItensChurrasService {
 		mapa.put("cerveja", cervejas);
 	}
 
-	/**
-	 * 
-	 * 
-	 * Limpa todos os itens de uma lista, ela deve ser especificada como parâmetro.
-	 * A lista já vem pronta no Map, passar apenas ela como parâmetro.
-	 * 
-	 * @param (Lista de carne, refrigerante ou cerveja)
-	 */
-	public void limpaTodosItensCadastrados(List<Item> listaItem) {
-		listaItem.clear();
-	}
-
-	/**
-	 * 
-	 * Limpa apenas um item de uma lista.
-	 * 
-	 * @param tipo, nome
-	 * 
-	 */
-	public void limpaApenasItemSelecionado(Map<String, List<Item>> mapa, String tipo, String nome) {
-		int linha = 0;
-		for (Item item : mapa.get(tipo)) {
-			if (item.getNome().equals(nome)) {
-				break;
-			}
-			linha++;
-		}
-
-		if (linha < mapa.get(tipo).size()) {
-			mapa.get(tipo).remove(linha);
-		} else {
-			BaseView.printaMensagemStatica("\n Nome do item não existente \n", 3);
-		}
-	}
 }
