@@ -11,13 +11,23 @@ import br.com.churras.view.CadastroView;
 import br.com.churras.view.DeleteView;
 
 public class ChurrasComponent {
+	
+	private final int OPCAO_SAIR = 0;
+	private final int CONVIDADO = 1;
+	private final int CARNE = 2;
+	private final int REFRIGERANTE = 3;
+	private final int CERVEJA = 4;
+	private final int ITENS = 2;
+	private final int UNITARIAMENTE = 2;
+	
+	
 	/**
-	 * O usuário poderá escolher quatro opcoes de cadastro:
+	 * O usuário poderá escolher quatro opcoes de cadastro:<br>
 	 * 
-	 * 1 - cadastrar convidado
-	 * 2 - cadastrar carne
-	 * 3 - cadastrar refrigerante
-	 * 4 - cadastrar cerveja
+	 * 1 - cadastrar convidado<br>
+	 * 2 - cadastrar carne<br>
+	 * 3 - cadastrar refrigerante<br>
+	 * 4 - cadastrar cerveja<br>
 	 * 
 	 * @param base
 	 */
@@ -33,14 +43,14 @@ public class ChurrasComponent {
 
 			switch (escolhaUsuario) {
 
-			case 1: {
+			case CONVIDADO: {
 				view.printaMensagemSemPularLinha("\n Digite o nome do convidado que deseja adicionar: ");
 				String nome = sc.pegarTextoCompletoDigitado();
 
 				cadastro.cadastrarConvidado(base.getConvidado(), nome);
 				break;
 			}
-			case 2: {
+			case CARNE: {
 				view.printaMensagem("\n Cadastro de carnes...\n");
 				List<Item> carnes = base.getMapaItens().get("carne");
 
@@ -52,7 +62,7 @@ public class ChurrasComponent {
 				cadastro.cadastrarItem(carnes, nome, CalculadorService.calculaCarne(valor));
 				break;
 			}
-			case 3: {
+			case REFRIGERANTE: {
 				view.printaMensagem("\n Cadastro de refrigerante...\n");
 				List<Item> refrigerante = base.getMapaItens().get("refrigerante");
 
@@ -64,7 +74,7 @@ public class ChurrasComponent {
 				cadastro.cadastrarItem(refrigerante, nome, BigDecimal.valueOf(valor));
 				break;
 			}
-			case 4: {
+			case CERVEJA: {
 				view.printaMensagem("Cadastrar Cervejas...");
 				List<Item> cerveja = base.getMapaItens().get("cerveja");
 
@@ -76,7 +86,7 @@ public class ChurrasComponent {
 				cadastro.cadastrarItem(cerveja, nome, CalculadorService.calculaCerveja(valor));
 				break;
 			}
-			case 0: {
+			case OPCAO_SAIR: {
 				view.printaMensagem("\n   Voltando para a tela inicial...");
 				continuarCadastro = 1;
 				break;
@@ -111,7 +121,7 @@ public class ChurrasComponent {
 			int escolhaUsuario = scanner.pegarInteiroDigitado();
 
 			switch (escolhaUsuario) {
-			case 1: {
+			case CONVIDADO: {
 				if (!base.getConvidado().getNome().isEmpty()) {
 					view.printaMensagem("\n Visualizar Convidados... \n");
 					cadastrado.convidadosCadastrados(base.getConvidado());
@@ -120,7 +130,7 @@ public class ChurrasComponent {
 				}
 				break;
 			}
-			case 2: {
+			case ITENS: {
 				if (!base.getMapaItens().isEmpty()) {
 					view.printaMensagem("\n Visualizar Itens... \n");
 
@@ -130,7 +140,7 @@ public class ChurrasComponent {
 				}
 				break;
 			}
-			case 0: {
+			case OPCAO_SAIR: {
 				view.printaMensagem("\n   Voltando para a tela inicial...");
 				continuarVisualizacao = 1;
 				break;
@@ -158,16 +168,16 @@ public class ChurrasComponent {
 			view.telaRemoverConvidadosEItens();
 			digitado = scanner.pegarInteiroDigitado();
 			switch (digitado) {
-			case 1: {
+			case CONVIDADO: {
 				view.printaMensagem("Remover Convidados...");
 				// TODO metodo para remover tudo (convidados e itens)
 				break;
 			}
-			case 2: {
+			case UNITARIAMENTE: {
 				view.printaMensagem("Remover Unitariamente...");
 				break;
 			}
-			case 0: {
+			case OPCAO_SAIR: {
 				continuarDeletar = 1;
 				break;
 			}

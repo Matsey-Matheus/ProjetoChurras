@@ -15,7 +15,7 @@ import br.com.churras.view.SomaView;
  * @author Matheus Martins Santos
  * 
  */
-public class CalculadorService {
+public class CalculadorService {	
 /**
  * Calcula com base nos convidados e nos itens cadastrados a quantidade que cada convidado irá contribuir para o Churras
  * 
