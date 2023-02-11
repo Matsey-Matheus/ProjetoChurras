@@ -20,7 +20,7 @@ public class CadastroView extends MensagemView {
 
 		int numeroConvidadoAtual = 1;
 		for (String convidado : convidados.getNome()) {
-			printaMensagemSemPularLinha("|\t" + convidado + "\t");
+			printaMensagemSemPularLinha("|\t" + convidado.split(" ")[0] + "\t");
 			if (numeroConvidadoAtual % 3 == 0) {
 				printaMensagemSemPularLinha("\t|");
 				printaMensagem("");

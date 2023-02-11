@@ -1,6 +1,7 @@
 package br.com.churras.service;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -74,6 +75,6 @@ public class CalculadorService {
 
 	public static void somarPorConvidados(int nmrConvidados, BigDecimal vlTotalItens) {
 		BigDecimal divisaoPorConvidado = vlTotalItens.divide(BigDecimal.valueOf(nmrConvidados));
-		view.printaMensagem("Valor para cada convidado: R$" + divisaoPorConvidado);
+		view.printaMensagem("Valor para cada convidado: R$" + divisaoPorConvidado.setScale(2, RoundingMode.HALF_EVEN));
 	}
 }
