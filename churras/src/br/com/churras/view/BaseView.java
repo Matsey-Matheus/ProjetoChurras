@@ -23,7 +23,8 @@ public class BaseView extends MensagemView {
 	private final int OPCAO_FAZER_CALCULO_POR_PESSOA = 4;
 	private final int OPCAO_COMO_FUNCIONA_O_SISTEMA = 5;
 
-	public void inicializacaoSistema(BaseModel base) {
+	public void inicializacaoSistema() {
+		BaseModel base = new BaseModel();
 		ItensChurrasService itemService = new ItensChurrasService();
 
 		itemService.preCadastroItensBase(base.getMapaItens());
