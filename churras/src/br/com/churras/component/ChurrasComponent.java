@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 import br.com.churras.model.BaseModel;
+import br.com.churras.model.Convidado;
 import br.com.churras.model.Item;
 import br.com.churras.service.CalculadorService;
 import br.com.churras.util.LeitorDeDados;
@@ -11,7 +12,7 @@ import br.com.churras.view.CadastroView;
 import br.com.churras.view.DeleteView;
 
 public class ChurrasComponent {
-	
+
 	private final int OPCAO_SAIR = 0;
 	private final int CONVIDADO = 1;
 	private final int CARNE = 2;
@@ -20,9 +21,8 @@ public class ChurrasComponent {
 	private final int ITENS = 2;
 	private final int UNITARIAMENTE = 2;
 	private final int CONVIDADOS_NOME_COMPLETO = 1;
-	private final int CONVIDADOS_NOME_COMPACTADO= 2;
-	
-	
+	private final int CONVIDADOS_NOME_COMPACTADO = 2;
+
 	/**
 	 * O usuário poderá escolher quatro opcoes de cadastro:<br>
 	 * 
@@ -102,8 +102,8 @@ public class ChurrasComponent {
 	/**
 	 * O usuário poderá escolher duas opcoes:
 	 * 
-	 * 1 - visualizar convidados
-	 * 2 - visualizar itens (carnes, refrigerantes e cervejas)
+	 * 1 - visualizar convidados 2 - visualizar itens (carnes, refrigerantes e
+	 * cervejas)
 	 * 
 	 * @param base
 	 */
@@ -124,51 +124,8 @@ public class ChurrasComponent {
 
 			switch (escolhaUsuario) {
 			case CONVIDADO: {
-				
-				view.printaMensagem("\\n------------- Tela de Visualização de Convidados -------------");
-				view.printaMensagem("1 - Nome dos Convidados Completos");
-				view.printaMensagem("2 - Nome dos Convidados Compactados");
-				view.printaMensagemSemPularLinha("Selecione Uma Opção: ");
-				escolhaUsuario = scanner.pegarInteiroDigitado();
-				
-				switch (escolhaUsuario) {
-				case CONVIDADOS_NOME_COMPLETO: {
-					view.printaMensagem("Visualizar Convidados Completo\n");
-					if (!base.getConvidado().getNome().isEmpty()) {
-//						view.printaMensagem("\n Visualizar Convidados... \n");
-						cadastrado.convidadosCadastrados(base.getConvidado());
-						break;
-					} else {
-						view.printaMensagemErro("\n\tNenhum convidado cadastrado");
-					}
-					break;
-				}
-				case CONVIDADOS_NOME_COMPACTADO:{
-					view.printaMensagem("Visualizar Convidados Compactado\n");
-					
-					int qtdVezes = 0;
-					for(String c : base.getConvidado().getNome()) {
-						String[] words = c.split("\\s+");
-						
-						
-						for(String a : words) {
-							
-							qtdVezes++;
-							
-							if(qtdVezes == 1 || qtdVezes == words.length) {
-								view.printaMensagem(a + " ");
-								if(qtdVezes == words.length) {
-									view.printaMensagem("");
-								}
-							}
-						}
-						qtdVezes = 0;
-					}
-					break;
-				}
-				default:
-					break;
-				}
+				convidados(base.getConvidado());
+				break;
 			}
 			case ITENS: {
 				if (!base.getMapaItens().isEmpty()) {
@@ -191,6 +148,55 @@ public class ChurrasComponent {
 		} while (continuarVisualizacao == 0);
 	}
 
+	private void convidados(Convidado convidado) {
+		CadastroView cadastrado = new CadastroView();
+		LeitorDeDados scanner = new LeitorDeDados();
+		CadastroView view = new CadastroView();
+		
+		view.printaMensagem("\\n------------- Tela de Visualização de Convidados -------------");
+		view.printaMensagem("1 - Nome dos Convidados Completos");
+		view.printaMensagem("2 - Nome dos Convidados Compactados");
+		
+		view.printaMensagemSemPularLinha("Selecione Uma Opção: ");
+		int escolhaUsuario = scanner.pegarInteiroDigitado();
+
+		switch (escolhaUsuario) {
+
+		case CONVIDADOS_NOME_COMPLETO: {
+			if (!convidado.getNome().isEmpty()) {
+				view.printaMensagem("\nVisualizar nomes completos\n");
+				
+				int qtdVezes = 0;
+				int vlNomeAtual = 1;
+				for (String c : convidado.getNome()) {
+					String[] words = c.split("\\s+");
+					view.printaMensagemSemPularLinha(vlNomeAtual + " -> ");
+					vlNomeAtual++;
+					for (String a : words) {
+						qtdVezes++;
+						if (qtdVezes == 1 || qtdVezes == words.length) {
+							view.printaMensagemSemPularLinha(a + " ");
+							if (qtdVezes == words.length) {
+								view.printaMensagem("");
+							}
+						}
+					}
+					qtdVezes = 0;
+				}
+				break;
+			} else {
+				view.printaMensagemErro("\n\tNenhum convidado cadastrado");
+			}
+			break;
+		}
+		case CONVIDADOS_NOME_COMPACTADO: {
+			cadastrado.convidadosCadastrados(convidado);
+		}
+		default:
+			break;
+		}
+	}
+
 	/**
 	 * este método apresentará ao usuario duas opcoes:
 	 * 
@@ -203,7 +209,7 @@ public class ChurrasComponent {
 		LeitorDeDados scanner = new LeitorDeDados();
 		DeletarComponent deletar = new DeletarComponent();
 		DeleteView view = new DeleteView();
-		
+
 		int continuarDeletar = 0;
 		int digitado;
 		do {
@@ -221,7 +227,7 @@ public class ChurrasComponent {
 				String tipo = scanner.pegarTextoCompletoDigitado();
 				view.printaMensagemSemPularLinha(" Nome: ");
 				String nome = scanner.pegarTextoCompletoDigitado();
-				
+
 				deletar.removerItemUnitario(base.getMapaItens(), tipo.toLowerCase(), nome);
 				break;
 			}
