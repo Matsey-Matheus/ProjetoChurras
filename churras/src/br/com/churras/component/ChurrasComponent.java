@@ -19,6 +19,8 @@ public class ChurrasComponent {
 	private final int CERVEJA = 4;
 	private final int ITENS = 2;
 	private final int UNITARIAMENTE = 2;
+	private final int CONVIDADOS_NOME_COMPLETO = 1;
+	private final int CONVIDADOS_NOME_COMPACTADO= 2;
 	
 	
 	/**
@@ -122,13 +124,51 @@ public class ChurrasComponent {
 
 			switch (escolhaUsuario) {
 			case CONVIDADO: {
-				if (!base.getConvidado().getNome().isEmpty()) {
-					view.printaMensagem("\n Visualizar Convidados... \n");
-					cadastrado.convidadosCadastrados(base.getConvidado());
-				} else {
-					view.printaMensagemErro("\n\tNenhum convidado cadastrado");
+				
+				view.printaMensagem("\\n------------- Tela de Visualização de Convidados -------------");
+				view.printaMensagem("1 - Nome dos Convidados Completos");
+				view.printaMensagem("2 - Nome dos Convidados Compactados");
+				view.printaMensagemSemPularLinha("Selecione Uma Opção: ");
+				escolhaUsuario = scanner.pegarInteiroDigitado();
+				
+				switch (escolhaUsuario) {
+				case CONVIDADOS_NOME_COMPLETO: {
+					view.printaMensagem("Visualizar Convidados Completo\n");
+					if (!base.getConvidado().getNome().isEmpty()) {
+//						view.printaMensagem("\n Visualizar Convidados... \n");
+						cadastrado.convidadosCadastrados(base.getConvidado());
+						break;
+					} else {
+						view.printaMensagemErro("\n\tNenhum convidado cadastrado");
+					}
+					break;
 				}
-				break;
+				case CONVIDADOS_NOME_COMPACTADO:{
+					view.printaMensagem("Visualizar Convidados Compactado\n");
+					
+					int qtdVezes = 0;
+					for(String c : base.getConvidado().getNome()) {
+						String[] words = c.split("\\s+");
+						
+						
+						for(String a : words) {
+							
+							qtdVezes++;
+							
+							if(qtdVezes == 1 || qtdVezes == words.length) {
+								view.printaMensagem(a + " ");
+								if(qtdVezes == words.length) {
+									view.printaMensagem("");
+								}
+							}
+						}
+						qtdVezes = 0;
+					}
+					break;
+				}
+				default:
+					break;
+				}
 			}
 			case ITENS: {
 				if (!base.getMapaItens().isEmpty()) {
