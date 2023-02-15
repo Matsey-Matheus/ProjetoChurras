@@ -153,11 +153,11 @@ public class ChurrasComponent {
 		LeitorDeDados scanner = new LeitorDeDados();
 		CadastroView view = new CadastroView();
 		
-		view.printaMensagem("\\n------------- Tela de Visualização de Convidados -------------");
-		view.printaMensagem("1 - Nome dos Convidados Completos");
-		view.printaMensagem("2 - Nome dos Convidados Compactados");
+		view.printaMensagem("\n------------- Tela de Visualização de Convidados -------------\n");
+		view.printaMensagem("   1 - Nome dos Convidados Completos");
+		view.printaMensagem("   2 - Nome dos Convidados Compactados\n");
 		
-		view.printaMensagemSemPularLinha("Selecione Uma Opção: ");
+		view.printaMensagemSemPularLinha(" Selecione Uma Opção: ");
 		int escolhaUsuario = scanner.pegarInteiroDigitado();
 
 		switch (escolhaUsuario) {
