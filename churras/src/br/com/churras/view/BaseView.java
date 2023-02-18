@@ -17,6 +17,7 @@ import br.com.churras.util.LeitorDeDados;
  */
 public class BaseView extends MensagemView {
 
+	private final int OPCAO_INVALIDA = -1;
 	private final int OPCAO_SAIR = 0;
 	private final int OPCAO_CADASTRAR = 1;
 	private final int OPCAO_VISUALIZAR = 2;
@@ -75,8 +76,14 @@ public class BaseView extends MensagemView {
 		do {
 			menuOpcoes();
 
-			printaMensagemSemPularLinha("\n Selecione: ");
-			escolhaUsuario = scanner.pegarInteiroDigitado();
+			printaMensagem("");
+			printaMensagemSemPularLinha("Selecione: ");
+			
+			try {
+				escolhaUsuario = scanner.pegarInteiroDigitado();				
+			} catch (Exception e) {
+				escolhaUsuario = OPCAO_INVALIDA;
+			}
 
 			switch (escolhaUsuario) {
 			case OPCAO_CADASTRAR: {
