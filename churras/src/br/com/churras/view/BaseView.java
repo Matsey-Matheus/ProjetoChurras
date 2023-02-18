@@ -8,6 +8,7 @@ import br.com.churras.util.LeitorDeDados;
 
 /**
  * 
+ * Classe responsavel por renderizar/capturar os dados na tela
  * 
  * @author Matheus Martins
  * @author Miguel Arcanjo
@@ -23,6 +24,11 @@ public class BaseView extends MensagemView {
 	private final int OPCAO_FAZER_CALCULO_POR_PESSOA = 4;
 	private final int OPCAO_COMO_FUNCIONA_O_SISTEMA = 5;
 
+	/**
+	 * Metodo para iniciar os cadastros basicos do sistema
+	 * 
+	 * @author Bruno Polido
+	 */
 	public void inicializacaoSistema() {
 		BaseModel base = new BaseModel();
 		ItensChurrasService itemService = new ItensChurrasService();
@@ -52,7 +58,8 @@ public class BaseView extends MensagemView {
 	 */
 	public void menuOpcoes() {
 		printaMensagem("\n------------- Tela Inicial -------------");
-		printaMensagem("\n  1 - Cadastrar \n  2 - Visualizar \n  3 - Deletar  \n  4 - Calcular Total \n  5 - Como Usar o Sistema \n  0 - Sair");
+		printaMensagem(
+				"\n  1 - Cadastrar \n  2 - Visualizar \n  3 - Deletar  \n  4 - Calcular Total \n  5 - Como Usar o Sistema \n  0 - Sair");
 	}
 
 	/**
@@ -64,14 +71,12 @@ public class BaseView extends MensagemView {
 	public void selecao(BaseModel base) {
 		LeitorDeDados scanner = new LeitorDeDados();
 		ChurrasComponent churrasComponent = new ChurrasComponent();
-
-		int continuarLoop = 1;
-
+		int escolhaUsuario;
 		do {
 			menuOpcoes();
 
 			printaMensagemSemPularLinha("\n Selecione: ");
-			int escolhaUsuario = scanner.pegarInteiroDigitado();
+			escolhaUsuario = scanner.pegarInteiroDigitado();
 
 			switch (escolhaUsuario) {
 			case OPCAO_CADASTRAR: {
@@ -97,14 +102,12 @@ public class BaseView extends MensagemView {
 			}
 			case OPCAO_SAIR: {
 				printaMensagem("\n\t Saindo do Programa...");
-				continuarLoop = 0;
 				break;
 			}
 			default:
 				printaMensagemErro("Escolha Uma Opção Válida");
-				continuarLoop = 1;
 			}
-		} while (continuarLoop == 1);
+		} while (escolhaUsuario != OPCAO_SAIR);
 
 		scanner.fechar();
 	}
@@ -121,27 +124,37 @@ public class BaseView extends MensagemView {
 		printaMensagem("		∟ 1 - Cadastrar Convidados");
 		printaMensagem("			∟ Para Cadastrar um Novo Convidado Você irá Precisar Colocar Somente o Nome Dele");
 		printaMensagem("		∟ 2 - Cadastrar Carnes");
-		printaMensagem("			∟ Para Cadastrar uma Carne Você irá Precisar Colocar o Nome da Carne e a Quantidade de 1Kg");
+		printaMensagem(
+				"			∟ Para Cadastrar uma Carne Você irá Precisar Colocar o Nome da Carne e a Quantidade de 1Kg");
 		printaMensagem("		∟ 3 - Cadastrar Refrigerante");
-		printaMensagem("			∟ Para Cadastrar um Novo Refrigerante Você Irá Colocar a Quantidade de Refrigerante equivale a 1.5 litros");
+		printaMensagem(
+				"			∟ Para Cadastrar um Novo Refrigerante Você Irá Colocar a Quantidade de Refrigerante equivale a 1.5 litros");
 		printaMensagem("		∟ 4 - Cadastrar Cerveja");
-		printaMensagem("			∟ Para Cadastrar Cerveja é Necessário Colocar o Nome e a Quantidade Equivalente a 1 Lata de Cerveja\n");
+		printaMensagem(
+				"			∟ Para Cadastrar Cerveja é Necessário Colocar o Nome e a Quantidade Equivalente a 1 Lata de Cerveja\n");
 		printaMensagem("	2 - Visualizar");
-		printaMensagem("		∟ Nesta Opção é Possível Visualizar os Convidados, Carnes, Refrigerantes e Cervejas Cadastrados Até o Momento no Sistema\n");
+		printaMensagem(
+				"		∟ Nesta Opção é Possível Visualizar os Convidados, Carnes, Refrigerantes e Cervejas Cadastrados Até o Momento no Sistema\n");
 		printaMensagem("	3 - Deletar");
 		printaMensagem("		∟ Você Terá Duas Opções de Remoção:");
 		printaMensagem("			∟ 1 - Remover Tudo Oque Está Registrado no Sistema Até o Momento");
-		printaMensagem("			∟ 2 - Remover Unitariamente (Dentro Desta Opção Você Poderá Escolher oque Remover em Cada uma das Opções Abaixo)");
+		printaMensagem(
+				"			∟ 2 - Remover Unitariamente (Dentro Desta Opção Você Poderá Escolher oque Remover em Cada uma das Opções Abaixo)");
 		printaMensagem("				∟ 1 - Remover Convidados");
 		printaMensagem("				∟ 2 - Remover Refrigerantes");
 		printaMensagem("				∟ 3 - Remover Cervejas\n");
 		printaMensagem("	4 - Calcular Valor por Pessoa");
-		printaMensagem("		∟ O Sistema Irá Estipular um Valor por igual para o Churras de Acordo com a quantidade de Convidados registrados no sistema");
+		printaMensagem(
+				"		∟ O Sistema Irá Estipular um Valor por igual para o Churras de Acordo com a quantidade de Convidados registrados no sistema");
 		printaMensagem("			∟ A Regra é a Seguinte:");
-		printaMensagem("				∟ O Sistema irá pegar todas as carnes registradas e fazer um calculo para que cada carne tenha a mesma proporção em Kg");
-		printaMensagem("				∟ O Sistema irá pegar todos os refrigerantes registrados e fazer um calculo para que cada refrigerante tenha a mesma proporção");
-		printaMensagem("				∟ O Sistema irá pegar todas as cervejas registradas e fazer um calculo para que cada refrigerante tenha a mesma proporção em latas");
-		printaMensagem("				∟ E depois irá somar cada item (carne, refrigerante e cerveja) - assim será gerado o valor que cada um terá que pagar no Churras");
+		printaMensagem(
+				"				∟ O Sistema irá pegar todas as carnes registradas e fazer um calculo para que cada carne tenha a mesma proporção em Kg");
+		printaMensagem(
+				"				∟ O Sistema irá pegar todos os refrigerantes registrados e fazer um calculo para que cada refrigerante tenha a mesma proporção");
+		printaMensagem(
+				"				∟ O Sistema irá pegar todas as cervejas registradas e fazer um calculo para que cada refrigerante tenha a mesma proporção em latas");
+		printaMensagem(
+				"				∟ E depois irá somar cada item (carne, refrigerante e cerveja) - assim será gerado o valor que cada um terá que pagar no Churras");
 	}
 
 }
