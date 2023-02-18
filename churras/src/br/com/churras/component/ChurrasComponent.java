@@ -7,13 +7,13 @@ import br.com.churras.model.BaseModel;
 import br.com.churras.model.Convidado;
 import br.com.churras.model.Item;
 import br.com.churras.service.CalculadorService;
+import br.com.churras.util.ConstanteBase;
 import br.com.churras.util.LeitorDeDados;
 import br.com.churras.view.CadastroView;
 import br.com.churras.view.DeleteView;
 
 public class ChurrasComponent {
 
-	private final int OPCAO_SAIR = 0;
 	private final int CONVIDADO = 1;
 	private final int CARNE = 2;
 	private final int REFRIGERANTE = 3;
@@ -88,7 +88,7 @@ public class ChurrasComponent {
 				cadastro.cadastrarItem(cerveja, nome, CalculadorService.calculaCerveja(valor));
 				break;
 			}
-			case OPCAO_SAIR: {
+			case ConstanteBase.OPCAO_SAIR: {
 				view.printaMensagem("\n   Voltando para a tela inicial...");
 				continuarCadastro = 1;
 				break;
@@ -137,7 +137,7 @@ public class ChurrasComponent {
 				}
 				break;
 			}
-			case OPCAO_SAIR: {
+			case ConstanteBase.OPCAO_SAIR: {
 				view.printaMensagem("\n   Voltando para a tela inicial...");
 				continuarVisualizacao = 1;
 				break;
@@ -231,7 +231,7 @@ public class ChurrasComponent {
 				deletar.removerItemUnitario(base.getMapaItens(), tipo.toLowerCase(), nome);
 				break;
 			}
-			case OPCAO_SAIR: {
+			case ConstanteBase.OPCAO_SAIR: {
 				continuarDeletar = 1;
 				break;
 			}

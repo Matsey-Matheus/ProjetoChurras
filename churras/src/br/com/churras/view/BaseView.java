@@ -4,6 +4,7 @@ import br.com.churras.component.ChurrasComponent;
 import br.com.churras.model.BaseModel;
 import br.com.churras.service.CalculadorService;
 import br.com.churras.service.ItensChurrasService;
+import br.com.churras.util.ConstanteBase;
 import br.com.churras.util.LeitorDeDados;
 
 /**
@@ -18,7 +19,6 @@ import br.com.churras.util.LeitorDeDados;
 public class BaseView extends MensagemView {
 
 	private final int OPCAO_INVALIDA = -1;
-	private final int OPCAO_SAIR = 0;
 	private final int OPCAO_CADASTRAR = 1;
 	private final int OPCAO_VISUALIZAR = 2;
 	private final int OPCAO_DELETAR = 3;
@@ -107,14 +107,14 @@ public class BaseView extends MensagemView {
 				comoFuncionaSistema();
 				break;
 			}
-			case OPCAO_SAIR: {
+			case ConstanteBase.OPCAO_SAIR: {
 				printaMensagem("\n\t Saindo do Programa...");
 				break;
 			}
 			default:
 				printaMensagemErro("Escolha Uma Opção Válida");
 			}
-		} while (escolhaUsuario != OPCAO_SAIR);
+		} while (escolhaUsuario != ConstanteBase.OPCAO_SAIR);
 
 		scanner.fechar();
 	}
