@@ -6,13 +6,13 @@ import java.util.Map;
 
 public class BaseModel {
 
-	private Convidado convidado = new Convidado();
+	private ConvidadosEvento convidado = new ConvidadosEvento();
 	private Map<String, List<Item>> mapaItens = new HashMap<>();
 	
 	public BaseModel() {
 	}
 
-	public Convidado getConvidado() {
+	public ConvidadosEvento getConvidado() {
 		return convidado;
 	}
 

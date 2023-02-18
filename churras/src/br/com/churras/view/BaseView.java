@@ -91,7 +91,7 @@ public class BaseView extends MensagemView {
 				break;
 			}
 			case OPCAO_VISUALIZAR: {
-				churrasComponent.vizualizar(base);
+				churrasComponent.visualizar(base);
 				break;
 			}
 			case OPCAO_DELETAR: {

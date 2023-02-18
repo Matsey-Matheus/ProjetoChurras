@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import br.com.churras.model.Convidado;
+import br.com.churras.model.ConvidadosEvento;
 import br.com.churras.model.Item;
 
 public class CadastroView extends MensagemView {
@@ -14,14 +15,15 @@ public class CadastroView extends MensagemView {
 	 * 
 	 * @param convidados
 	 */
-	public void convidadosCadastrados(Convidado convidados) {
+	public void convidadosCadastrados(ConvidadosEvento convidados) {
 		// montarTopo();
 		printaMensagem("");
 
 		int numeroConvidadoAtual = 1;
-		for (String convidado : convidados.getNome()) {
+		for (Convidado convidado : convidados.getConvidados()) {
+			String nome = convidado.getNome();
 			printaMensagemSemPularLinha("|\t"
-					+ (convidado.split(" ")[0].length() <= 7 ? convidado.split(" ")[0] : convidado.substring(0, 7))
+					+ (nome.split(" ")[0].length() <= 7 ? nome.split(" ")[0] : nome.substring(0, 7))
 					+ "\t");
 			if (numeroConvidadoAtual % 3 == 0) {
 				printaMensagemSemPularLinha("\t|");
