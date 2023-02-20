@@ -5,15 +5,16 @@ import java.util.List;
 
 import br.com.churras.model.BaseModel;
 import br.com.churras.model.Convidado;
+import br.com.churras.model.ConvidadosEvento;
 import br.com.churras.model.Item;
 import br.com.churras.service.CalculadorService;
+import br.com.churras.util.ConstanteBase;
 import br.com.churras.util.LeitorDeDados;
 import br.com.churras.view.CadastroView;
 import br.com.churras.view.DeleteView;
 
 public class ChurrasComponent {
 
-	private final int OPCAO_SAIR = 0;
 	private final int CONVIDADO = 1;
 	private final int CARNE = 2;
 	private final int REFRIGERANTE = 3;
@@ -48,7 +49,6 @@ public class ChurrasComponent {
 			case CONVIDADO: {
 				view.printaMensagemSemPularLinha("\n Digite o nome do convidado que deseja adicionar: ");
 				String nome = sc.pegarTextoCompletoDigitado();
-
 				cadastro.cadastrarConvidado(base.getConvidado(), nome);
 				break;
 			}
@@ -88,7 +88,7 @@ public class ChurrasComponent {
 				cadastro.cadastrarItem(cerveja, nome, CalculadorService.calculaCerveja(valor));
 				break;
 			}
-			case OPCAO_SAIR: {
+			case ConstanteBase.OPCAO_SAIR: {
 				view.printaMensagem("\n   Voltando para a tela inicial...");
 				continuarCadastro = 1;
 				break;
@@ -107,7 +107,7 @@ public class ChurrasComponent {
 	 * 
 	 * @param base
 	 */
-	public void vizualizar(BaseModel base) {
+	public void visualizar(BaseModel base) {
 		CadastroView cadastrado = new CadastroView();
 		LeitorDeDados scanner = new LeitorDeDados();
 		CadastroView view = new CadastroView();
@@ -137,7 +137,7 @@ public class ChurrasComponent {
 				}
 				break;
 			}
-			case OPCAO_SAIR: {
+			case ConstanteBase.OPCAO_SAIR: {
 				view.printaMensagem("\n   Voltando para a tela inicial...");
 				continuarVisualizacao = 1;
 				break;
@@ -148,7 +148,7 @@ public class ChurrasComponent {
 		} while (continuarVisualizacao == 0);
 	}
 
-	private void convidados(Convidado convidado) {
+	private void convidados(ConvidadosEvento convidado) {
 		CadastroView cadastrado = new CadastroView();
 		LeitorDeDados scanner = new LeitorDeDados();
 		CadastroView view = new CadastroView();
@@ -163,13 +163,13 @@ public class ChurrasComponent {
 		switch (escolhaUsuario) {
 
 		case CONVIDADOS_NOME_COMPLETO: {
-			if (!convidado.getNome().isEmpty()) {
+			if (!convidado.getConvidados().isEmpty()) {
 				view.printaMensagem("\nVisualizar nomes completos\n");
 				
 				int qtdVezes = 0;
 				int vlNomeAtual = 1;
-				for (String c : convidado.getNome()) {
-					String[] words = c.split("\\s+");
+				for (Convidado c : convidado.getConvidados()) {
+					String[] words = c.getNome().split("\\s+");
 					view.printaMensagemSemPularLinha(vlNomeAtual + " -> ");
 					vlNomeAtual++;
 					for (String a : words) {
@@ -231,7 +231,7 @@ public class ChurrasComponent {
 				deletar.removerItemUnitario(base.getMapaItens(), tipo.toLowerCase(), nome);
 				break;
 			}
-			case OPCAO_SAIR: {
+			case ConstanteBase.OPCAO_SAIR: {
 				continuarDeletar = 1;
 				break;
 			}

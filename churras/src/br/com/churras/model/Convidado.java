@@ -1,28 +1,30 @@
 package br.com.churras.model;
 
-import java.util.LinkedList;
-import java.util.List;
+import java.time.LocalDate;
 
-/**
- * 
- * 
- * @author Matheus Martins
- *
- */
 public class Convidado {
 
-	// TODO FINALIZAR MODELO DE CONVIDADO (atributo "Nome", construtor e Getter Setter)
-	private List<String> nome = new LinkedList<>();
-
-	public Convidado() {
+	private String nome;
+	private LocalDate dataNascimento;
+	
+	public Convidado(String nome, LocalDate dataNascimento) {
+		this.nome = nome;
+		this.dataNascimento = dataNascimento;
 	}
-
-	public List<String> getNome() {
+	
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	
+	public String getNome() {
 		return nome;
 	}
-	
-	public void addConvidado(String nome) {
-		this.nome.add(nome);
+
+	public LocalDate getDataNascimento() {
+		return dataNascimento;
 	}
-	
+
+	public void setDataNascimento(LocalDate dataNascimento) {
+		this.dataNascimento = dataNascimento;
+	}
 }

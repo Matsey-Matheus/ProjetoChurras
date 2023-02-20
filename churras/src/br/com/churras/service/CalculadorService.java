@@ -19,7 +19,7 @@ public class CalculadorService {
 	private static SomaView view = new SomaView();
 
 	public static void somarTotal(BaseModel base) {
-		int numeroConvidados = base.getConvidado().getNome().size();
+		int numeroConvidados = base.getConvidado().getConvidados().size();
 		if (numeroConvidados > 0) {
 			BigDecimal valorTotalItens = somarItens(base.getMapaItens());
 			somarPorConvidados(numeroConvidados, valorTotalItens);
