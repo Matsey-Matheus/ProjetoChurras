@@ -6,7 +6,7 @@ public class ConstanteBase {
 	public static final int OPCAO_VOLTAR = -1; // ChurrasComponent
 	
 	public static final int OPCAO_SAIR = 0;
-	public static final int CONTINUAR_LOOP = 0;
+	public static final int CONTINUAR_LOOP = 0; // quero colocar ela ao inves da variaveis continuarCadastro ... , mas nao sei se vai dar certo
 	
 	public static final int CONVIDADO = 1;
 	public static final int CONVIDADOS_NOME_COMPLETO = 1; // ChurrasComponent
