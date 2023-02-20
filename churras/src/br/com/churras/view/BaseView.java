@@ -18,12 +18,8 @@ import br.com.churras.util.LeitorDeDados;
  */
 public class BaseView extends MensagemView {
 
-	private final int OPCAO_INVALIDA = -1;
-	private final int OPCAO_CADASTRAR = 1;
-	private final int OPCAO_VISUALIZAR = 2;
-	private final int OPCAO_DELETAR = 3;
-	private final int OPCAO_FAZER_CALCULO_POR_PESSOA = 4;
-	private final int OPCAO_COMO_FUNCIONA_O_SISTEMA = 5;
+	
+	
 
 	/**
 	 * Metodo para iniciar os cadastros basicos do sistema
@@ -82,27 +78,27 @@ public class BaseView extends MensagemView {
 			try {
 				escolhaUsuario = scanner.pegarInteiroDigitado();				
 			} catch (Exception e) {
-				escolhaUsuario = OPCAO_INVALIDA;
+				escolhaUsuario = ConstanteBase.OPCAO_INVALIDA;
 			}
 
 			switch (escolhaUsuario) {
-			case OPCAO_CADASTRAR: {
+			case ConstanteBase.OPCAO_CADASTRAR: {
 				churrasComponent.cadastrar(base);
 				break;
 			}
-			case OPCAO_VISUALIZAR: {
+			case ConstanteBase.OPCAO_VISUALIZAR: {
 				churrasComponent.visualizar(base);
 				break;
 			}
-			case OPCAO_DELETAR: {
+			case ConstanteBase.OPCAO_DELETAR: {
 				churrasComponent.deletar(base);
 				break;
 			}
-			case OPCAO_FAZER_CALCULO_POR_PESSOA: {
+			case ConstanteBase.OPCAO_FAZER_CALCULO_POR_PESSOA: {
 				CalculadorService.somarTotal(base);
 				break;
 			}
-			case OPCAO_COMO_FUNCIONA_O_SISTEMA: {
+			case ConstanteBase.OPCAO_COMO_FUNCIONA_O_SISTEMA: {
 				printaMensagem("\nEm Desenvolvimento");
 				comoFuncionaSistema();
 				break;
