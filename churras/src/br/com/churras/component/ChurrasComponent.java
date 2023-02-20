@@ -81,13 +81,13 @@ public class ChurrasComponent {
 			}
 			case ConstanteBase.OPCAO_SAIR: {
 				view.printaMensagem("\n   Voltando para a tela inicial...");
-				continuarCadastro = 1;
+				continuarCadastro = ConstanteBase.OPCAO_VOLTAR;
 				break;
 			}
 			default:
 				view.printaMensagemErro("   Escolha uma opcao valida");
 			}
-		} while (continuarCadastro == 0);
+		} while (continuarCadastro == ConstanteBase.OPCAO_SAIR);
 	}
 
 	/**
@@ -121,7 +121,6 @@ public class ChurrasComponent {
 			case ConstanteBase.ITENS: {
 				if (!base.getMapaItens().isEmpty()) {
 					view.printaMensagem("\n Visualizar Itens... \n");
-
 					cadastrado.itensCadastrados(base.getMapaItens());
 				} else {
 					view.printaMensagem("\n\tNenhum item cadastrado");
@@ -130,13 +129,13 @@ public class ChurrasComponent {
 			}
 			case ConstanteBase.OPCAO_SAIR: {
 				view.printaMensagem("\n   Voltando para a tela inicial...");
-				continuarVisualizacao = 1;
+				continuarVisualizacao = ConstanteBase.OPCAO_VOLTAR;
 				break;
 			}
 			default:
 				view.printaMensagemErro("\n   Escolha uma opcao valida");
 			}
-		} while (continuarVisualizacao == 0);
+		} while (continuarVisualizacao == ConstanteBase.OPCAO_SAIR);
 	}
 
 	private void convidados(ConvidadosEvento convidado) {
@@ -146,13 +145,15 @@ public class ChurrasComponent {
 		
 		view.printaMensagem("\n------------- Tela de Visualização de Convidados -------------\n");
 		view.printaMensagem("   1 - Nome dos Convidados Completos");
-		view.printaMensagem("   2 - Nome dos Convidados Compactados\n");
+		view.printaMensagem("   2 - Nome dos Convidados Compactados");
+		view.printaMensagem("   0 - Sair");
+		view.printaMensagemSemPularLinha("");
 		
 		view.printaMensagemSemPularLinha(" Selecione Uma Opção: ");
 		int escolhaUsuario = scanner.pegarInteiroDigitado();
 
+		// TODO colocar este switch case em algum lugar mais adequado
 		switch (escolhaUsuario) {
-
 		case ConstanteBase.CONVIDADOS_NOME_COMPLETO: {
 			if (!convidado.getConvidados().isEmpty()) {
 				view.printaMensagem("\nVisualizar nomes completos\n");
@@ -182,8 +183,14 @@ public class ChurrasComponent {
 		}
 		case ConstanteBase.CONVIDADOS_NOME_COMPACTADO: {
 			cadastrado.convidadosCadastrados(convidado);
+			
+		}
+		case ConstanteBase.OPCAO_SAIR: {
+			view.printaMensagem("\n   Voltando para o menu inicial...");
+			break;
 		}
 		default:
+			view.printaMensagemSemPularLinha("\n    Selecione uma opção válida: ");
 			break;
 		}
 	}
@@ -223,13 +230,14 @@ public class ChurrasComponent {
 				break;
 			}
 			case ConstanteBase.OPCAO_SAIR: {
-				continuarDeletar = 1;
+				view.printaMensagem("\n   Voltando para a tela inicial... ");
+				continuarDeletar = ConstanteBase.OPCAO_VOLTAR;
 				break;
 			}
 			default:
 				view.printaMensagem("   Escolha uma opcao valida");
 			}
-		} while (continuarDeletar == 0);
+		} while (continuarDeletar != ConstanteBase.OPCAO_SAIR);
 		scanner.fechar();
 	}
 
