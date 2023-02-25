@@ -15,6 +15,10 @@ import br.com.churras.view.DeleteView;
 
 public class ChurrasComponent {
 
+	public static final int CONVIDADOS_NOME_COMPLETO = 1;
+	public static final int CONVIDADOS_NOME_COMPACTADO = 2;
+	public static final int UNITARIAMENTE = 2;  // teste
+
 	/**
 	 * O usuário poderá escolher quatro opcoes de cadastro:<br>
 	 * 
@@ -142,22 +146,22 @@ public class ChurrasComponent {
 		CadastroView cadastrado = new CadastroView();
 		LeitorDeDados scanner = new LeitorDeDados();
 		CadastroView view = new CadastroView();
-		
+
 		view.printaMensagem("\n------------- Tela de Visualização de Convidados -------------\n");
 		view.printaMensagem("   1 - Nome dos Convidados Completos");
 		view.printaMensagem("   2 - Nome dos Convidados Compactados");
 		view.printaMensagem("   0 - Sair");
-		view.printaMensagemSemPularLinha("");
-		
+		view.printaMensagem(""); // TODO fazer um método para nao deixar essas linhas em branco durante todo o
+									// código
 		view.printaMensagemSemPularLinha(" Selecione Uma Opção: ");
 		int escolhaUsuario = scanner.pegarInteiroDigitado();
 
 		// TODO colocar este switch case em algum lugar mais adequado
 		switch (escolhaUsuario) {
-		case ConstanteBase.CONVIDADOS_NOME_COMPLETO: {
+		case CONVIDADOS_NOME_COMPLETO: {
 			if (!convidado.getConvidados().isEmpty()) {
 				view.printaMensagem("\nVisualizar nomes completos\n");
-				
+
 				int qtdVezes = 0;
 				int vlNomeAtual = 1;
 				for (Convidado c : convidado.getConvidados()) {
@@ -181,9 +185,9 @@ public class ChurrasComponent {
 			}
 			break;
 		}
-		case ConstanteBase.CONVIDADOS_NOME_COMPACTADO: {
+		case CONVIDADOS_NOME_COMPACTADO: {
 			cadastrado.convidadosCadastrados(convidado);
-			
+
 		}
 		case ConstanteBase.OPCAO_SAIR: {
 			view.printaMensagem("\n   Voltando para o menu inicial...");
@@ -219,7 +223,7 @@ public class ChurrasComponent {
 				// TODO metodo para remover tudo (convidados e itens)
 				break;
 			}
-			case ConstanteBase.UNITARIAMENTE: {
+			case UNITARIAMENTE: {
 				view.printaMensagem("Remover Unitariamente...");
 				view.printaMensagemSemPularLinha(" Tipo no singular: ");
 				String tipo = scanner.pegarTextoCompletoDigitado();
