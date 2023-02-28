@@ -18,14 +18,12 @@ import br.com.churras.util.LeitorDeDados;
  */
 public class BaseView extends MensagemView {
 
-	
 	public static final int OPCAO_INVALIDA = -1;
 	public static final int OPCAO_CADASTRAR = 1;
 	public static final int OPCAO_VISUALIZAR = 2;
 	public static final int OPCAO_DELETAR = 3;
 	public static final int OPCAO_FAZER_CALCULO_POR_PESSOA = 4;
 	private final int OPCAO_COMO_FUNCIONA_O_SISTEMA = 5;
-	
 
 	/**
 	 * Metodo para iniciar os cadastros basicos do sistema
@@ -51,7 +49,7 @@ public class BaseView extends MensagemView {
 		printaMensagem("Com base nesses dados fizemos um sistema para calcular o valor total do churrasco");
 		printaMensagem("e valor que cada pessoa vai precisar pagar");
 		printaMensagem("Tendo em Base que o valor dos itens para o churasco e de de");
-		printaMensagem("--------------- =============================== ---------------\n");
+		printaMensagemLn("--------------- =============================== ---------------");
 	}
 
 	/**
@@ -60,9 +58,13 @@ public class BaseView extends MensagemView {
 	 * @author Miguel Arcanjo
 	 */
 	public void menuOpcoes() {
-		printaMensagem("\n------------- Tela Inicial -------------");
-		printaMensagem(
-				"\n  1 - Cadastrar \n  2 - Visualizar \n  3 - Deletar  \n  4 - Calcular Total \n  5 - Como Usar o Sistema \n  0 - Sair");
+		printaMensagemLn("\n------------- Tela Inicial -------------");
+		printaMensagem("  1 - Cadastrar ");
+		printaMensagem("  2 - Visualizar ");
+		printaMensagem("  3 - Deletar  ");
+		printaMensagem("  4 - Calcular Total ");
+		printaMensagem("  5 - Como Usar o Sistema ");
+		printaMensagem("  0 - Sair");
 	}
 
 	/**
@@ -77,12 +79,10 @@ public class BaseView extends MensagemView {
 		int escolhaUsuario;
 		do {
 			menuOpcoes();
+			lnPrintaMensagemSemPularLinha("Selecione: ");
 
-			printaMensagem("");
-			printaMensagemSemPularLinha("Selecione: ");
-			
 			try {
-				escolhaUsuario = scanner.pegarInteiroDigitado();				
+				escolhaUsuario = scanner.pegarInteiroDigitado();
 			} catch (Exception e) {
 				escolhaUsuario = OPCAO_INVALIDA;
 			}
@@ -105,12 +105,12 @@ public class BaseView extends MensagemView {
 				break;
 			}
 			case OPCAO_COMO_FUNCIONA_O_SISTEMA: {
-				printaMensagem("\nEm Desenvolvimento");
+				lnPrintaMensagem("Em Desenvolvimento");
 				comoFuncionaSistema();
 				break;
 			}
 			case ConstanteBase.OPCAO_SAIR: {
-				printaMensagem("\n\t Saindo do Programa...");
+				lnPrintaMensagem("\t Saindo do Programa...");
 				break;
 			}
 			default:
