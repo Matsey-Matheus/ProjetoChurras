@@ -42,7 +42,7 @@ public class ChurrasComponent {
 			switch (escolhaUsuario) {
 
 			case ConstanteBase.CONVIDADO: {
-				view.lnPrintaMensagem(" Digite o nome do convidado que deseja adicionar: ");
+				view.lnPrintaMensagemSemPularLinha(" Digite o nome do convidado que deseja adicionar: ");
 				String nome = sc.pegarTextoCompletoDigitado();
 				cadastro.cadastrarConvidado(base.getConvidado(), nome);
 				break;
@@ -70,7 +70,7 @@ public class ChurrasComponent {
 				break;
 			}
 			case ConstanteBase.CERVEJA: {
-				view.printaMensagem("Cadastrar Cervejas...");
+				view.lnPrintaMensagemLn("Cadastrar Cervejas...");
 				List<Item> cerveja = base.getMapaItens().get("cerveja");
 				view.printaMensagemSemPularLinha(" Nome: ");
 				String nome = sc.pegarTextoCompletoDigitado();

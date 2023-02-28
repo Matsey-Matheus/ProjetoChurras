@@ -22,9 +22,8 @@ public class CadastroView extends MensagemView {
 		int numeroConvidadoAtual = 1;
 		for (Convidado convidado : convidados.getConvidados()) {
 			String nome = convidado.getNome();
-			printaMensagemSemPularLinha("|\t"
-					+ (nome.split(" ")[0].length() <= 7 ? nome.split(" ")[0] : nome.substring(0, 7))
-					+ "\t");
+			printaMensagemSemPularLinha(
+					"|\t" + (nome.split(" ")[0].length() <= 7 ? nome.split(" ")[0] : nome.substring(0, 7)) + "\t");
 			if (numeroConvidadoAtual % 3 == 0) {
 				printaMensagemSemPularLinha("\t|");
 				printaMensagem("");
@@ -42,7 +41,7 @@ public class CadastroView extends MensagemView {
 	 * @param item
 	 */
 	public void itensCadastrados(Map<String, List<Item>> item) {
-		printaMensagem("------------- Itens cadastrados ------------- \n");
+		printaMensagemLn("------------- Itens cadastrados ------------- ");
 		if (!item.isEmpty()) {
 			printaMensagem("Carnes: ");
 			for (Item cada : item.get("carne")) {
@@ -63,12 +62,15 @@ public class CadastroView extends MensagemView {
 	 * Mostra no console o menu da tela de cadastro
 	 */
 	public void inicioCadastroView() {
-		printaMensagem("\n------------- Tela de Cadastros -------------\n");
-		printaMensagem("              Você deseja cadastrar: \n");
-		printaMensagem(
-				"    1 - Convidados \n    2 - Carnes \n    3 - Refrigerante \n    4 - Cervejas \n    0 - Voltar");
+		lnPrintaMensagemLn("------------- Tela de Cadastros -------------");
+		printaMensagemLn("              Você deseja cadastrar: ");
+		printaMensagem("    1 - Convidados ");
+		printaMensagem("    2 - Carnes ");
+		printaMensagem("    3 - Refrigerante ");
+		printaMensagem("    4 - Cervejas ");
+		printaMensagem("    0 - Voltar");
 
-		printaMensagemSemPularLinha("\n Selecione: ");
+		lnPrintaMensagemSemPularLinha(" Selecione: ");
 	}
 
 }

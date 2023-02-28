@@ -24,7 +24,7 @@ public class CalculadorService {
 			BigDecimal valorTotalItens = somarItens(base.getMapaItens());
 			somarPorConvidados(numeroConvidados, valorTotalItens);
 		} else {
-			view.printaMensagemErro("\nNão há convidados cadastrados para somar o churrasco");
+			view.lnPrintaMensagemErro("Não há convidados cadastrados para somar o churrasco");
 		}
 	}
 
@@ -73,6 +73,6 @@ public class CalculadorService {
 
 	public static void somarPorConvidados(int nmrConvidados, BigDecimal vlTotalItens) {
 		BigDecimal divisaoPorConvidado = vlTotalItens.divide(BigDecimal.valueOf(nmrConvidados));
-		view.printaMensagem("Valor para cada convidado: R$" + divisaoPorConvidado.setScale(2, RoundingMode.HALF_EVEN));
+		view.printaMensagem(" Valor para cada convidado: R$" + divisaoPorConvidado.setScale(2, RoundingMode.HALF_EVEN));
 	}
 }
