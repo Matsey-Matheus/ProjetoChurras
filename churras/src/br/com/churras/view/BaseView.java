@@ -18,14 +18,12 @@ import br.com.churras.util.LeitorDeDados;
  */
 public class BaseView extends MensagemView {
 
-	
 	public static final int OPCAO_INVALIDA = -1;
 	public static final int OPCAO_CADASTRAR = 1;
 	public static final int OPCAO_VISUALIZAR = 2;
 	public static final int OPCAO_DELETAR = 3;
 	public static final int OPCAO_FAZER_CALCULO_POR_PESSOA = 4;
 	private final int OPCAO_COMO_FUNCIONA_O_SISTEMA = 5;
-	
 
 	/**
 	 * Metodo para iniciar os cadastros basicos do sistema
@@ -51,7 +49,7 @@ public class BaseView extends MensagemView {
 		printaMensagem("Com base nesses dados fizemos um sistema para calcular o valor total do churrasco");
 		printaMensagem("e valor que cada pessoa vai precisar pagar");
 		printaMensagem("Tendo em Base que o valor dos itens para o churasco e de de");
-		printaMensagem("--------------- =============================== ---------------\n");
+		printaMensagemLn("--------------- =============================== ---------------");
 	}
 
 	/**
@@ -60,9 +58,13 @@ public class BaseView extends MensagemView {
 	 * @author Miguel Arcanjo
 	 */
 	public void menuOpcoes() {
-		printaMensagem("\n------------- Tela Inicial -------------");
-		printaMensagem(
-				"\n  1 - Cadastrar \n  2 - Visualizar \n  3 - Deletar  \n  4 - Calcular Total \n  5 - Como Usar o Sistema \n  0 - Sair");
+		printaMensagemLn("\n------------- Tela Inicial -------------");
+		printaMensagem("  1 - Cadastrar ");
+		printaMensagem("  2 - Visualizar ");
+		printaMensagem("  3 - Deletar  ");
+		printaMensagem("  4 - Calcular Total ");
+		printaMensagem("  5 - Como Usar o Sistema ");
+		printaMensagem("  0 - Sair");
 	}
 
 	/**
@@ -77,12 +79,10 @@ public class BaseView extends MensagemView {
 		int escolhaUsuario;
 		do {
 			menuOpcoes();
+			lnPrintaMensagemSemPularLinha("Selecione: ");
 
-			printaMensagem("");
-			printaMensagemSemPularLinha("Selecione: ");
-			
 			try {
-				escolhaUsuario = scanner.pegarInteiroDigitado();				
+				escolhaUsuario = scanner.pegarInteiroDigitado();
 			} catch (Exception e) {
 				escolhaUsuario = OPCAO_INVALIDA;
 			}
@@ -105,12 +105,12 @@ public class BaseView extends MensagemView {
 				break;
 			}
 			case OPCAO_COMO_FUNCIONA_O_SISTEMA: {
-				printaMensagem("\nEm Desenvolvimento");
+				lnPrintaMensagem("Em Desenvolvimento");
 				comoFuncionaSistema();
 				break;
 			}
 			case ConstanteBase.OPCAO_SAIR: {
-				printaMensagem("\n\t Saindo do Programa...");
+				lnPrintaMensagem("\t Saindo do Programa...");
 				break;
 			}
 			default:
@@ -122,48 +122,39 @@ public class BaseView extends MensagemView {
 	}
 
 	/**
+	 * Explica para o usuario toda a navegação do sistema, como cada opção funciona e suas funcionalidades
+	 * 
 	 * @author Bruno Polido
 	 */
 	public void comoFuncionaSistema() {
 		informacao();
 		printaMensagem("------------- Como Funciona o Sistema -------------\n");
-		// TODO Atualizar informações
-		// TODO informações sobre como remover
 		printaMensagem("	1 - No Menu de Cadastrar ira aparecer subcategorias de 1 a 4");
 		printaMensagem("		∟ 1 - Cadastrar Convidados");
 		printaMensagem("			∟ Para Cadastrar um Novo Convidado Você irá Precisar Colocar Somente o Nome Dele");
 		printaMensagem("		∟ 2 - Cadastrar Carnes");
-		printaMensagem(
-				"			∟ Para Cadastrar uma Carne Você irá Precisar Colocar o Nome da Carne e a Quantidade de 1Kg");
+		printaMensagem("			∟ Para Cadastrar uma Carne Você irá Precisar Colocar o Nome da Carne e a Quantidade de 1Kg");
 		printaMensagem("		∟ 3 - Cadastrar Refrigerante");
-		printaMensagem(
-				"			∟ Para Cadastrar um Novo Refrigerante Você Irá Colocar a Quantidade de Refrigerante equivale a 1.5 litros");
+		printaMensagem("			∟ Para Cadastrar um Novo Refrigerante Você Irá Colocar a Quantidade de Refrigerante equivale a 1.5 litros");
 		printaMensagem("		∟ 4 - Cadastrar Cerveja");
-		printaMensagem(
-				"			∟ Para Cadastrar Cerveja é Necessário Colocar o Nome e a Quantidade Equivalente a 1 Lata de Cerveja\n");
+		printaMensagem("			∟ Para Cadastrar Cerveja é Necessário Colocar o Nome e a Quantidade Equivalente a 1 Lata de Cerveja\n");
+		// TODO foi adicionado mais daus funcionalidades no visualizar
 		printaMensagem("	2 - Visualizar");
-		printaMensagem(
-				"		∟ Nesta Opção é Possível Visualizar os Convidados, Carnes, Refrigerantes e Cervejas Cadastrados Até o Momento no Sistema\n");
+		printaMensagem("		∟ Nesta Opção é Possível Visualizar os Convidados, Carnes, Refrigerantes e Cervejas Cadastrados Até o Momento no Sistema\n");
 		printaMensagem("	3 - Deletar");
 		printaMensagem("		∟ Você Terá Duas Opções de Remoção:");
 		printaMensagem("			∟ 1 - Remover Tudo Oque Está Registrado no Sistema Até o Momento");
-		printaMensagem(
-				"			∟ 2 - Remover Unitariamente (Dentro Desta Opção Você Poderá Escolher oque Remover em Cada uma das Opções Abaixo)");
+		printaMensagem("			∟ 2 - Remover Unitariamente (Dentro Desta Opção Você Poderá Escolher oque Remover em Cada uma das Opções Abaixo)");
 		printaMensagem("				∟ 1 - Remover Convidados");
 		printaMensagem("				∟ 2 - Remover Refrigerantes");
 		printaMensagem("				∟ 3 - Remover Cervejas\n");
 		printaMensagem("	4 - Calcular Valor por Pessoa");
-		printaMensagem(
-				"		∟ O Sistema Irá Estipular um Valor por igual para o Churras de Acordo com a quantidade de Convidados registrados no sistema");
+		printaMensagem("		∟ O Sistema Irá Estipular um Valor por igual para o Churras de Acordo com a quantidade de Convidados registrados no sistema");
 		printaMensagem("			∟ A Regra é a Seguinte:");
-		printaMensagem(
-				"				∟ O Sistema irá pegar todas as carnes registradas e fazer um calculo para que cada carne tenha a mesma proporção em Kg");
-		printaMensagem(
-				"				∟ O Sistema irá pegar todos os refrigerantes registrados e fazer um calculo para que cada refrigerante tenha a mesma proporção");
-		printaMensagem(
-				"				∟ O Sistema irá pegar todas as cervejas registradas e fazer um calculo para que cada refrigerante tenha a mesma proporção em latas");
-		printaMensagem(
-				"				∟ E depois irá somar cada item (carne, refrigerante e cerveja) - assim será gerado o valor que cada um terá que pagar no Churras");
+		printaMensagem("				∟ O Sistema irá pegar todas as carnes registradas e fazer um calculo para que cada carne tenha a mesma proporção em Kg");
+		printaMensagem("				∟ O Sistema irá pegar todos os refrigerantes registrados e fazer um calculo para que cada refrigerante tenha a mesma proporção");
+		printaMensagem("				∟ O Sistema irá pegar todas as cervejas registradas e fazer um calculo para que cada refrigerante tenha a mesma proporção em latas");
+		printaMensagem("				∟ E depois irá somar cada item (carne, refrigerante e cerveja) - assim será gerado o valor que cada um terá que pagar no Churras");
 	}
 
 }

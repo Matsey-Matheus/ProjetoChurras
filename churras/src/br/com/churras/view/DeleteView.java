@@ -10,9 +10,9 @@ public class DeleteView extends MensagemView {
 	 * @author Miguel Arcanjo
 	 */
 	public void telaRemoverConvidadosEItens() {
-		printaMensagem("\n------------- Tela de Remover Convidados e Itens -------------\n");
-		printaMensagem(" 1 - Remover tudo         - (ao remover tudo você estará deletando tanto convidados quanto refrigerantes e cervejas)");
-		printaMensagem(" 2 - Limpar unitariamente - (escolhendo esta opcao voce poderá escolher oque remover separadamente)");
+		lnPrintaMensagemLn("------------- Tela de Remover Convidados e Itens -------------");
+		printaMensagem(" 1 - Remover tudo         ");
+		printaMensagem(" 2 - Remover unitariamente ");
 		printaMensagem(" 0 - Voltar");
 	}
 }

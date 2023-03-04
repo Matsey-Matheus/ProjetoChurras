@@ -18,13 +18,20 @@ public class CalculadorService {
 
 	private static SomaView view = new SomaView();
 
+	/**
+	 * Calcular o valor que irá ficar para cada integrando do churrasco
+	 * 
+	 * TODO verificar se esta certo esta documentação
+	 * 
+	 * @param base
+	 */
 	public static void somarTotal(BaseModel base) {
 		int numeroConvidados = base.getConvidado().getConvidados().size();
 		if (numeroConvidados > 0) {
 			BigDecimal valorTotalItens = somarItens(base.getMapaItens());
 			somarPorConvidados(numeroConvidados, valorTotalItens);
 		} else {
-			view.printaMensagemErro("\nNão há convidados cadastrados para somar o churrasco");
+			view.lnPrintaMensagemErro("Não há convidados cadastrados para somar o churrasco");
 		}
 	}
 
@@ -41,11 +48,23 @@ public class CalculadorService {
 		return valorKiloConvertido.subtract(porcentagem.multiply(valorKiloConvertido));
 	}
 
+	/**
+	 * Pega o valor que o usuario inseriu para aquela cerveja e multiplica por 5
+	 * 
+	 * @param valorLata
+	 * @return
+	 */
 	public static BigDecimal calculaCerveja(double valorLata) {
 		BigDecimal valorLataConvertido = BigDecimal.valueOf(valorLata);
 		return valorLataConvertido.multiply(BigDecimal.valueOf(5));
 	}
 
+	/**
+	 * Soma todos os itens cadastrados e exibe no console
+	 * 
+	 * @param itens
+	 * @return
+	 */
 	private static BigDecimal somarItens(Map<String, List<Item>> itens) {
 		BigDecimal totalCarne = BigDecimal.ZERO;
 		BigDecimal totalRefrigerante = BigDecimal.ZERO;
@@ -71,8 +90,14 @@ public class CalculadorService {
 		return total;
 	}
 
+	/**
+	 * Calcula a quantidade que cada participante do churrasto terá que levar
+	 * 
+	 * @param nmrConvidados
+	 * @param vlTotalItens
+	 */
 	public static void somarPorConvidados(int nmrConvidados, BigDecimal vlTotalItens) {
 		BigDecimal divisaoPorConvidado = vlTotalItens.divide(BigDecimal.valueOf(nmrConvidados));
-		view.printaMensagem("Valor para cada convidado: R$" + divisaoPorConvidado.setScale(2, RoundingMode.HALF_EVEN));
+		view.printaMensagem(" Valor para cada convidado: R$" + divisaoPorConvidado.setScale(2, RoundingMode.HALF_EVEN));
 	}
 }
