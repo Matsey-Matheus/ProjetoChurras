@@ -18,11 +18,11 @@ import br.com.churras.util.LeitorDeDados;
  */
 public class BaseView extends MensagemView {
 
-	public static final int OPCAO_INVALIDA = -1;
-	public static final int OPCAO_CADASTRAR = 1;
-	public static final int OPCAO_VISUALIZAR = 2;
-	public static final int OPCAO_DELETAR = 3;
-	public static final int OPCAO_FAZER_CALCULO_POR_PESSOA = 4;
+	private final int OPCAO_INVALIDA = -1;
+	private final int OPCAO_CADASTRAR = 1;
+	private final int OPCAO_VISUALIZAR = 2;
+	private final int OPCAO_DELETAR = 3;
+	private final int OPCAO_FAZER_CALCULO_POR_PESSOA = 4;
 	private final int OPCAO_COMO_FUNCIONA_O_SISTEMA = 5;
 
 	/**
